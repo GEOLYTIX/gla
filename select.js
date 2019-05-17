@@ -40,7 +40,7 @@ function gla_select (_xyz, location) {
       }
     });
     
-    //location.flytTo();
+    location.flytTo();
     
     console.log(location);
 
