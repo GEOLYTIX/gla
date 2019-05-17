@@ -40,10 +40,6 @@ function gla_select (_xyz, location) {
       }
     });
     
-    location.flytTo();
-    
-    console.log(location);
-
     const locationView = document.getElementById('locationView');
 
     locationView.innerHTML = '';
