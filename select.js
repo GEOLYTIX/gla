@@ -46,6 +46,8 @@ function gla_select (_xyz, location) {
 
     locationView.appendChild(gla_locationView(_xyz, location.infoj));
     
+    setTimeout(function(){ _xyz.map.invalidateSize() }, 400);
+    
   });
   
 };
