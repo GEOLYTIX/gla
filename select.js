@@ -39,6 +39,8 @@ function gla_select (_xyz, location) {
         }
       }
     });
+    
+    location.flytTo();
 
     const locationView = document.getElementById('locationView');
 
