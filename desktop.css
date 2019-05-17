@@ -1,0 +1,168 @@
+        #mayor_header {
+            background-color: #353d42;
+            color: #FFF;
+            height: 65px;
+            font-size: 21px;
+            font-weight: 600;
+            white-space: nowrap;
+            line-height: 3.2;
+            width: 100%;
+            text-align: center;
+            min-width: 768px;
+        }
+
+        #app_body {
+            min-width: 768px;
+            max-width: 1024px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #F5F5F5;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 10px;
+        }
+
+        .picture_box {
+            height: 260px;
+            background-image: url(https://res.cloudinary.com/geolytix/image/upload/v1557337040/gla/signs.png);
+            background-size: cover;
+        }
+
+        .pink_box {
+            background-color: #f06;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .pink_box>.title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 10px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+        }
+
+        .btn.active {
+            background-color: #f06;
+        }
+
+        .align-flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .darkish {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .light {
+            color: #222;
+            border: 2px solid #222;
+        }
+
+        .pink-bg {
+            color: #fff;
+            background-color: #f06;
+        }
+
+        .pink-br {
+            border: 2px solid #f06;
+        }
+
+        .location {
+            display: grid;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .location a {
+            color: #f06;
+        }
+
+        .location .title {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .location .grid {
+            display: grid;
+            grid-gap: 5px;
+        }
+
+        #map_attribution {
+            z-index: 999;
+            position: absolute;
+            bottom: 0;
+            text-align: left;
+            white-space: nowrap;
+            width: 100%;
+            font-weight: bold;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            opacity: 0.9;
+            background-color: ghostwhite;
+        }
+
+        /* Tabulator styles */
+        .tabulator {
+            border: none;
+        }
+
+        .tabulator .tabulator-header {
+            display: none;
+        }
+
+        .tabulator .tabulator-tableHolder .tabulator-table {
+            width: 100%;
+        }
+
+        .tabulator-row {
+            min-height: 0px;
+        }
+
+        .tabulator-row.tabulator-selectable:hover {
+            background-color: rgba(0, 153, 0, 0.2);
+        }
+
+        .tabulator-row .tabulator-responsive-collapse {
+            border: none;
+        }
+
+        .tabulator-row .tabulator-cell {
+            border-left: none;
+        }
+
+        .tabulator-row .tabulator-cell div div {
+            display: block !important;
+            vertical-align: middle;
+        }
+
+        .tabulator-row.tabulator-group {
+            border-bottom: none;
+            border-left: none;
+            border-top: none;
+        }
+
+        #postcode-search input {
+            width: 100%;
+            height: 30px;
+            font-family: inherit;
+            font-size: 16px;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
