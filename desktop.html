@@ -10,49 +10,40 @@
     <link rel="stylesheet" href="{{:dir}}/css/control.css" />
 
     <script src="{{:dir}}/js/build/xyz_control_bundle.js" defer></script>
+
+    <!-- <script src="{{:dir}}/views/gla_select.js" defer></script>
+    <script src="{{:dir}}/views/gla_desktop.js" defer></script>-->
+
     <script type="application/javascript" src="{{:dir}}/proxy/cdn?uri=https://raw.githubusercontent.com/GEOLYTIX/gla/master/select.js&type=application/javascript" defer></script>
     <script type="application/javascript" src="{{:dir}}/proxy/cdn?uri=https://raw.githubusercontent.com/GEOLYTIX/gla/master/desktop.js&type=application/javascript" defer></script>
 
     <style>
-        #mayor_header {
-            background-color: #353d42;
-            color: #FFF;
-            height: 65px;
-            font-size: 21px;
-            font-weight: 600;
-            white-space: nowrap;
-            line-height: 3.2;
-            width: 100%;
-            text-align: center;
-            min-width: 768px;
+        #pink {
+            background-color: #EE266D;
         }
 
-        #app_body {
-            min-width: 768px;
-            max-width: 1024px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #F5F5F5;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-            grid-gap: 10px;
+        #cyan {
+            background-color: #00AEEF;
         }
 
-        .picture_box {
-            height: 260px;
-            background-image: url(https://res.cloudinary.com/geolytix/image/upload/v1557337040/gla/signs.png);
-            background-size: cover;
+        #green {
+            background-color: #008D48;
         }
 
-        .pink_box {
-            background-color: #f06;
+        #orange {
+            background-color: #E85713;
+        }
+
+        .pink-box {
+            background-color: #EE266D;
             color: #fff;
             padding: 10px;
+            font-size: 25px;
+            font-weight: bold;
         }
 
-        .pink_box>.title {
-            font-size: 25px;
+        .text-box {
+            padding: 10px;
             font-weight: bold;
         }
 
@@ -65,7 +56,63 @@
         }
 
         .btn.active {
-            background-color: #f06;
+            background-color: #EE266D;
+        }
+
+        .darkish {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .light {
+            color: #222;
+            border: 3px solid #222;
+        }
+
+        .pink-bg {
+            color: #fff;
+            background-color: #EE266D;
+        }
+
+        .pink-br {
+            border: 3px solid #EE266D;
+        }
+
+        #postcode-search input {
+            width: 100%;
+            height: 30px;
+            font-family: inherit;
+            font-size: 16px;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .location {
+            display: grid;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .location a {
+            color: #EE266D;
+        }
+
+        .location .title {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .location .title:hover {
+            cursor: pointer;
+        }
+
+        .location .grid {
+            display: grid;
+            grid-gap: 5px;
         }
 
         .align-flex {
@@ -77,63 +124,54 @@
             align-items: center;
         }
 
-        .darkish {
-            background-color: #222;
-            color: #fff;
+        /* MAP */
+        #Map {
+            height: 400px;
         }
 
-        .light {
-            color: #222;
-            border: 2px solid #222;
-        }
-
-        .pink-bg {
-            color: #fff;
-            background-color: #f06;
-        }
-
-        .pink-br {
-            border: 2px solid #f06;
-        }
-
-        .location {
-            display: grid;
-            grid-gap: 10px;
-            padding: 10px;
-        }
-
-        .location a {
-            color: #f06;
-        }
-
-        .location .title {
-            font-size: 25px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .location .grid {
-            display: grid;
-            grid-gap: 5px;
-        }
-
-        #map_attribution {
+        #Map>._attribution {
             z-index: 999;
             position: absolute;
             bottom: 0;
-            text-align: left;
-            white-space: nowrap;
             width: 100%;
-            font-weight: bold;
             text-overflow: ellipsis;
             overflow: hidden;
+            text-align: left;
+            white-space: nowrap;
+            background-color: #fff;
             opacity: 0.9;
-            background-color: ghostwhite;
+            padding: 5px;
+            font-size: 10px;
+            font-weight: bold;
         }
 
-        /* Tabulator styles */
+
+        .select-selected {
+            background-color: #000 !important;
+        }
+
+        .select-items div,
+        .select-selected {
+            color: #fff !important;
+        }
+
+        .select-items {
+            background-color: #000 !important;
+        }
+
+        .select-items div:hover,
+        .same-as-selected {
+            background-color: #EE266D !important;
+        }
+    
+
+        /* LIST */
         .tabulator {
             border: none;
+        }
+
+        .tabulator-row.tabulator-group {
+            background: #fff;
         }
 
         .tabulator .tabulator-header {
@@ -170,119 +208,114 @@
             border-left: none;
             border-top: none;
         }
-
-        #postcode-search input {
-            width: 100%;
-            height: 30px;
-            font-family: inherit;
-            font-size: 16px;
-            border: none;
-        }
-
-        input:focus {
-            outline: none;
-        }
     </style>
 
 </head>
 
 <body>
 
-    <div id="mayor_header">MAYOR OF LONDON</div>
+    <div style="
+        min-width: 768px;
+        color: #FFF;
+        background-color: #353D42;
+        font-size: 20px;
+        font-weight: bold;
+        white-space: nowrap;
+        line-height: 3;
+        text-align: center;">
+        MAYOR OF LONDON
+    </div>
 
-    <div id="app_body">
-
-        <div id="locationView" style="grid-column: 1; grid-row: 1; background-color: #fff; padding: 10px;">
-            <div class="picture_box"></div>
-        </div>
-
-        <div style="grid-column: 1; grid-row: 2;" class="pink_box">
-            <p class="title">Search for an advice centre near you</p>
-            <p>Either search for a specific location, or click on a point on the map to see details of advice centres
-                near you</p>
-        </div>
-
-        <div style="grid-column: 1; grid-row: 3;
-        background-color: #fff;
+    <div style="
+        min-width: 768px;
+        max-width: 1024px;
+        margin: auto;
+        background-color: #F5F5F5;
         padding: 10px;
         display: grid;
+        grid-template-columns: 2fr 3fr;
         grid-gap: 10px;">
-            <div id="postcode-search" class="btn light" style="grid-row: 1; grid-column: 1/3"><input
-                    placeholder="Enter your postcode or address" /></div>
-            <div id="btnLocate" class="btn darkish" style="grid-row: 2; grid-column: 1/2">Current Location</div>
-            <div id="postcode-find" class="btn darkish" style="grid-row: 2; grid-column: 2/3">Find this Postcode</div>
-            <div class="btn light" id="select-borough" style="grid-row: 3; grid-column: 1/3">
 
-                <div class="xyz-custom-select">
-                    <select data-field="borough">
-                        <option value=0>Search by the borough where you live or work</option>
-                        <option value=1>Show all boroughs</option>
-                        <option value=2>Barking and Dagenham</option>
-                        <option value=3>Barnet</option>
-                        <option value=4>Bexley</option>
-                        <option value=5>Brent</option>
-                        <option value=6>Bromley</option>
-                        <option value=7>Camden</option>
-                        <option value=8>City of London</option>
-                        <option value=9>Croydon</option>
-                        <option value=10>Ealing</option>
-                        <option value=11>Enfield</option>
-                        <option value=12>Greenwich</option>
-                        <option value=13>Hackney</option>
-                        <option value=14>Hammersmith and Fulham</option>
-                        <option value=15>Haringey</option>
-                        <option value=16>Harrow</option>
-                        <option value=17>Havering</option>
-                        <option value=18>Hillingdon</option>
-                        <option value=19>Hounslow</option>
-                        <option value=20>Islington</option>
-                        <option value=21>Kensington and Chelsea</option>
-                        <option value=22>Kingston upon Thames</option>
-                        <option value=23>Lambeth</option>
-                        <option value=24>Lewisham</option>
-                        <option value=25>Merton</option>
-                        <option value=26>Newham</option>
-                        <option value=27>Redbridge</option>
-                        <option value=28>Richmond-upon-Thames</option>
-                        <option value=29>Southwark</option>
-                        <option value=30>Sutton</option>
-                        <option value=31>Tower Hamlets</option>
-                        <option value=32>Wandsworth</option>
-                        <option value=33>Westminster</option>
-                    </select>
+        <div style="grid-column: 1;">
+
+            <div class="pink-box">
+                Employment rights advice near you
+            </div>
+
+            <div class="text-box">
+                Search for a location or click on a point on the map to see details of employment rights advice centres
+                near you.
+            </div>
+
+            <div style="
+                background-color: #fff;
+                padding: 10px;
+                display: grid;
+                grid-gap: 10px;">
+
+                <div id="postcode-search" class="btn light" style="grid-row: 1; grid-column: 1/3">
+                    <input placeholder="Enter your postcode or address" />
+                </div>
+
+                <div id="btnLocate" class="btn darkish" style="grid-row: 2; grid-column: 1/2">
+                    Current Location
+                </div>
+
+                <div id="postcode-find" class="btn darkish" style="grid-row: 2; grid-column: 2/3">
+                    Find this Postcode
                 </div>
 
             </div>
-            <div class="btn light" id="select-advice" style="grid-row: 4; grid-column: 1/3">
-                <div class="xyz-custom-select">
-                    <select data-field="advice">
-                        <option>Search by type of advice/support</option>
-                        <option>Show all</option>
-                        <option value="service_initial_advice">Initial Advice</option>
-                        <option value="service_written_advice">Written Advice</option>
-                        <option value="service_form_filling">Form Filling</option>
-                        <option value="service_case_work">Casework</option>
-                        <option value="service_representation">Representation</option>
-                    </select>
+
+            <div id="locationView" style="background-color: #fff; padding: 10px;">
+                <div id="titleImg" style="
+                    height: 300px;
+                    background-image: url(https://res.cloudinary.com/geolytix/image/upload/v1557337040/gla/signs.png);
+                    background-size: cover;">
                 </div>
             </div>
+
         </div>
 
-        <div id="Map" style="grid-column: 2; grid-row: 1;">
-            <div id="map_attribution"><a target="_blank" href="https://github.com/geolytix/xyz">GEOLYTIX XYZ</a>; <a
-                    target="_blank" href="https://leafletjs.com/">Leaflet</a>; <a target="_blank"
-                    href="https://www.mapbox.com">© Mapbox</a>; <a target="_blank"
-                    href="https://www.openstreetmap.org/copyright">© Open Streetmap</a></div>
-        </div>
+        <div style="grid-column: 2;">
 
-        <div style="grid-column: 2; grid-row: 2;" class="pink_box">
-            <p class="title">List of advice centres</p>
-            <p>Click on an advice centre in the list below to see contact details and opening hours</p>
-        </div>
+            <div id="Map">
+                <div class="_attribution">
+                    <a target="_blank" href="https://github.com/geolytix/xyz">GEOLYTIX XYZ</a>;
+                    <a target="_blank" href="https://leafletjs.com/">Leaflet</a>;
+                    <a target="_blank" href="https://www.mapbox.com">© Mapbox</a>;
+                    <a target="_blank" href="https://www.openstreetmap.org/copyright">© Open Streetmap</a>
+                </div>
+            </div>
 
-        <div id="List" style="background-color: #fff; grid-column: 2; grid-row: 3/5"></div>
+            <div class="pink-box">
+                Browse advice centres in London
+            </div>
+
+            <div class="text-box">
+                Click on a borough in the list below or use the filters to see all the centres in the area that give
+                advice on employment rights, then click on the name of a centre to see the details.
+            </div>
+
+            <div style="
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: 1fr 1fr;
+                padding: 10px;
+                background-color: #fff;">
+
+                <div id="select-borough" style="grid-column: 1"></div>
+
+                <div id="select-advice" style="grid-column: 2"></div>
+
+            </div>
+
+            <div id="List" style="background-color: #fff;"></div>
+
+        </div>
 
     </div>
+
 </body>
 
 </html>
