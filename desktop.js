@@ -2,21 +2,22 @@ _xyz({
   host: document.head.dataset.dir,
   //hooks: true,
   callback: _xyz => {
-
+  
     _xyz.mapview.create({
       target: document.getElementById('Map'),
       scrollWheelZoom: true,
+      zoomControl: true,
       btn: {
         Locate: document.getElementById('btnLocate'),
       }
     });
-
+  
     _xyz.locations.select = location => gla_select(_xyz, location);
-
+  
     const layer = _xyz.layers.list['Advice Center'];
-
+  
     layer.filter.current = {};
-
+  
     const tableShow = () => _xyz.tableview.layerTable({
       layer: layer,
       target: document.getElementById('List'),
@@ -35,9 +36,9 @@ _xyz({
       groupToggleElement: 'header',
       rowClick: (e, row) => {
         const rowData = row.getData();
-
+  
         if (!rowData.qid) return;
-
+  
         _xyz.locations.select({
           locale: _xyz.workspace.locale.key,
           layer: layer.key,
@@ -46,12 +47,12 @@ _xyz({
         });
       }
     });
-
+  
     tableShow();
-
+  
     _xyz.utils.dropdownCustom({
       appendTo: document.getElementById('select-borough'),
-      placeholder: 'Search by the borough where you live or work',
+      placeholder: 'Filter by borough',
       field: 'borough',
       entries: [
         'Show all boroughs',
@@ -102,13 +103,13 @@ _xyz({
         tableShow();
       }
     });
-
+  
     _xyz.utils.dropdownCustom({
       appendTo: document.getElementById('select-advice'),
-      placeholder: 'Search by type of advice/support',
+      placeholder: 'Filter by service',
       field: 'advice',
       entries: [
-        { 'all': 'Show all' }, 
+        { 'all': 'Show all services' }, 
         { 'service_initial_advice': 'Initial Advice' },
         { 'service_written_advice': 'Written Advice' },
         { 'service_form_filling': 'Form Filling' },
@@ -125,45 +126,45 @@ _xyz({
             tableShow();
           }
         });
-
-        if(e.target.textContent === 'Show all'){
+  
+        if(e.target.textContent === 'Show all services'){
           delete layer.filter.current[e.target.dataset.field];
           layer.zoomToExtent();
           tableShow();
           return;
         }
-
+  
         layer.filter.current[e.target.dataset.field] = {};
         layer.filter.current[e.target.dataset.field]['boolean'] = true;
         layer.zoomToExtent();
         tableShow();
       }
     });
-
+  
     searchPostcode(_xyz);
   }
 });
-
-
-
-function searchPostcode(_xyz){
-
-  const input = document.querySelector('#postcode-search input');
-
-  const find = document.querySelector('#postcode-find');
   
+  
+  
+function searchPostcode(_xyz){
+  
+  const input = document.querySelector('#postcode-search input');
+  
+  const find = document.querySelector('#postcode-find');
+    
   input.addEventListener('focus', e => {
     document.getElementById('postcode-find').classList.remove('darkish');
     document.getElementById('postcode-find').classList.add('pink-bg');
     e.target.parentNode.classList.add('pink-br');
   });
-
+  
   input.addEventListener('blur', e => {
     document.getElementById('postcode-find').classList.add('darkish');
     document.getElementById('postcode-find').classList.remove('pink-bg');
     e.target.parentNode.classList.remove('pink-br');
   });
-
+  
   find.addEventListener('click', () => {
     _xyz.gazetteer.search(input.value, {
       source: 'GOOGLE',
@@ -173,7 +174,7 @@ function searchPostcode(_xyz){
       }
     });
   });
-
+  
   input.addEventListener('keydown', e => {
     let key = e.keyCode || e.charCode;
     if(key === 13) _xyz.gazetteer.search(input.value, {
@@ -184,5 +185,5 @@ function searchPostcode(_xyz){
       }
     });
   });
-
+  
 }
