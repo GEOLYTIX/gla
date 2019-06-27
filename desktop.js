@@ -173,8 +173,7 @@ _xyz({
               const xhr = new XMLHttpRequest();
 
               xhr.open('GET',
-                //_xyz.host + '/api/location/select/id?' +
-                'http://localhost:3000/gla/api/location/select/latlng/nnearest?' +
+                _xyz.host + '/gla/api/location/select/latlng/nnearest?' +
                 _xyz.utils.paramString({
                   locale: _xyz.workspace.locale.key,
                   layer: 'Advice Center',
