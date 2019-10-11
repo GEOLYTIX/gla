@@ -133,7 +133,8 @@ _xyz({
       if (fields.website) {
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <i style="grid-column: 3; grid-row: 1; font-size: 15px;" class="material-icons">launch</i>`);
+          <div style="grid-column: 3; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@master/icon_link.svg);" class="location_icon">`);
+
         viewGrid.appendChild(
           _xyz.utils.wire()`
             <a style="grid-column: 4; grid-row: 1; line-height: 1.5;" href="${fields.website}">Website</a>`);
@@ -174,7 +175,7 @@ _xyz({
 
       view.appendChild(viewGrid);
 
-      var viewGrid = _xyz.utils.wire()`<div style="display: grid; grid-gap:0px;">`;
+      var viewGrid = _xyz.utils.wire()`<div style="display: grid; grid-gap:0px; grid-template-columns: 30px;">`;
 
       var gridRow = 1;
 
