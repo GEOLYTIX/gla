@@ -69,7 +69,7 @@ _xyz({
 
       });
 
-      const view = _xyz.utils.wire()`<div class="location" style="${'font-size: 10.5px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
+      const view = _xyz.utils.wire()`<div class="location" style="${'font-size: 14px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
 
 
       const header = _xyz.utils.wire()`<div style="display: grid; grid-gap: 5px; grid-template-columns: 30px auto 30px;">`;
@@ -137,7 +137,7 @@ _xyz({
 
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <a style="grid-column: 4; grid-row: 1; line-height: 1.5;" href="${fields.website}">Website</a>`);
+            <a style="grid-column: 4; grid-row: 1;" href="${fields.website}">Website</a>`);
       }
 
       if (fields.phone) {
@@ -146,7 +146,7 @@ _xyz({
             <div style="grid-column: 3; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_phone.svg);" class="location_icon">`);
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <div style="grid-column: 4; grid-row: 2; line-height: 1.5;">${fields.phone}`);
+            <div style="grid-column: 4; grid-row: 2;">${fields.phone}`);
       }
 
       if (fields.email) {
@@ -155,7 +155,7 @@ _xyz({
             <div style="grid-column: 3; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_email.svg);" class="location_icon">`);
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <a style="grid-column: 4; grid-row: 3; line-height: 1.5;" href="${'mailto:' + fields.email}">Email</a>`);
+            <a style="grid-column: 4; grid-row: 3;" href="${'mailto:' + fields.email}">Email</a>`);
       }
       if (fields.coverage) {
 
@@ -180,7 +180,7 @@ _xyz({
       var gridRow = 1;
 
       var el = _xyz.utils.wire()`
-          <div style="grid-column: 1/4; font-weight: bold; line-height: 2; font-size: 10.5px;">Opening Hours:`;
+          <div style="grid-column: 1/4; font-weight: bold; line-height: 2; font-size: 14px;">Opening Hours:`;
       el.style.gridRow = gridRow;
       viewGrid.appendChild(el);
 
@@ -288,7 +288,7 @@ _xyz({
 
       var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 20px">`;
 
-      viewGrid.appendChild(_xyz.utils.wire()`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 10.5px;">Services offered:`)
+      viewGrid.appendChild(_xyz.utils.wire()`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 14px;">Services offered:`)
 
 
       viewGrid.appendChild(_xyz.utils.wire()`
