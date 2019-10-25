@@ -72,15 +72,15 @@ _xyz({
       const view = _xyz.utils.wire()`<div class="location" style="${'font-size: 14px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
 
 
-      const header = _xyz.utils.wire()`<div style="display: grid; grid-gap: 5px; grid-template-columns: 30px auto 30px;">`;
+      const header = _xyz.utils.wire()`<div style="display: grid; grid-gap: 5px; grid-template-columns: auto 30px 30px;">`;
 
       view.appendChild(header);
 
-      const title_expand = _xyz.utils.wire()`<div style="grid-column: 1;" class="title-btn expander">`;
+      header.appendChild(_xyz.utils.wire()`<div style="grid-column: 1" class="title">${fields.organisation_short}`);
+
+      const title_expand = _xyz.utils.wire()`<div style="grid-column: 2;" class="title-btn expander">`;
 
       header.appendChild(title_expand);
-
-      header.appendChild(_xyz.utils.wire()`<div style="grid-column: 2" class="title">${fields.organisation_short}`);
 
       const title_close = _xyz.utils.wire()`<div style="grid-column: 3;" class="title-btn exit">`;
 
@@ -175,7 +175,7 @@ _xyz({
 
       view.appendChild(viewGrid);
 
-      var viewGrid = _xyz.utils.wire()`<div style="display: grid; grid-gap:0px; grid-template-columns: 30px;">`;
+      var viewGrid = _xyz.utils.wire()`<div style="display: grid; grid-gap:0px; grid-template-columns: 50px;">`;
 
       var gridRow = 1;
 
@@ -196,7 +196,7 @@ _xyz({
         fields.phone_saturday) {
 
         var el = _xyz.utils.wire()`
-          <div style="grid-column: 2; text-align: center; font-weight: bold;">Telephone`;
+          <div style="grid-column: 2; font-weight: bold;">Telephone`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
 
@@ -214,7 +214,7 @@ _xyz({
         fields.hours_saturday) {
 
         var el = _xyz.utils.wire()`
-          <div style="grid-column: 3; text-align: center; font-weight: bold;">Face-to-face`;
+          <div style="grid-column: 3; font-weight: bold;">Face-to-face`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
 
@@ -245,14 +245,14 @@ _xyz({
 
           if (hours) {
             var el = _xyz.utils.wire()`
-                <div style="grid-column: 3; text-align: center;">${hours}`;
+                <div style="grid-column: 3;">${hours}`;
             el.style.gridRow = gridRow;
             viewGrid.appendChild(el);
           }
 
           if (phone) {
             var el = _xyz.utils.wire()`
-                <div style="grid-column: 2; text-align: center;">${phone}`;
+                <div style="grid-column: 2;">${phone}`;
             el.style.gridRow = gridRow;
             viewGrid.appendChild(el);
           }
