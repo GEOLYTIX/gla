@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-dir="{{:dir}}">
+    <title>{{:title}}</title>
+    <link rel="icon" type="image/x-icon" href="{{:dir}}/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{{:dir}}/css/openlayers.css" />
+    <link rel="stylesheet" href="{{:dir}}/css/control.css" />
+    <link rel="stylesheet" href="{{:dir}}/views/mobile.css" />
+
+    <script src="{{:dir}}/js/build/xyz_openlayers.js" defer></script>
+    <script src="{{:dir}}/views/gla_mobile.js" defer></script>
+    <style>
+        .primary-colour {
+            color: #9E0059;
+        }
+    
+        .primary-colour-filter {
+            filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
+        }
+    
+        .primary-colour-bg {
+            background-color: #9E0059;
+        }
+    
+        .primary-colour-bb {
+            border-bottom: 1px solid #9E0059;
+        }
+    
+        input[type=range]::-webkit-slider-thumb {
+            background: #9E0059;
+        }
+    
+        input[type=range]::-moz-range-thumb {
+            background: #9E0059;
+        }
+    
+        #ctrls>.tab.active {
+            background-color: #9E0059;
+        }
+    
+        #ctrls>.tab {
+            border-bottom: 1px solid #9E0059;
+        }
+
+        #ctrls>.tab>.xyz-icon {
+            filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
+        }
+
+        .enabled > .xyz-icon {
+            filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
+        }
+
+        .tabulator-headers {
+            display: none;
+        }
+    </style>
+</head>
+
+<body
+    data-nanoid={{:nanoid}}
+    data-log={{:log}}
+    data-token={{:token}}
+    data-login={{:login}}>
+
+    <div id="Map" class="mapview map" style="margin-top: 0;"></div>
+
+    <div class="btn-column"></div>
+
+    <div id="spacer"></div>
+
+    <div id="ctrls">
+
+        <div class="tab active">
+            <div class="xyz-icon icon-layers"></div>
+            <div class="listview">
+                <div id="layers"></div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <div class="xyz-icon icon-location"></div>
+            <div class="listview">
+                <div id="locations"></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
