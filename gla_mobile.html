@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head data-dir="{{:dir}}">
-    <title>{{:title}}</title>
-    <link rel="icon" type="image/x-icon" href="{{:dir}}/favicon.ico" />
+<head data-dir="${dir}">
+
+    <title>Greater London Authority - Employment Rights Advice</title>
+
+    <link rel="icon" type="image/x-icon" href="${dir}/favicon.ico" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{{:dir}}/css/openlayers.css" />
-    <link rel="stylesheet" href="{{:dir}}/css/control.css" />
-    <link rel="stylesheet" href="{{:dir}}/views/mobile.css" />
+    <link rel="stylesheet" href="${dir}/css/openlayers.css" />
+    <link rel="stylesheet" href="${dir}/css/control.css" />
+    <link rel="stylesheet" href="${dir}/views/mobile.css" />
 
-    <script src="{{:dir}}/js/build/xyz_openlayers.js" defer></script>
-    <script src="{{:dir}}/views/gla_mobile.js" defer></script>
+    <script src="${dir}/js/build/xyz_openlayers.js" defer></script>
+
+    <script src="${dir}/views/gla_mobile.js" defer></script>
+
+    <!-- <script type="application/javascript" src="https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/gla_mobile.js" defer></script> -->
+
     <style>
         .primary-colour {
             color: #9E0059;
         }
-    
+
         .primary-colour-filter {
             filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
         }
-    
+
         .primary-colour-bg {
             background-color: #9E0059;
         }
-    
+
         .primary-colour-bb {
             border-bottom: 1px solid #9E0059;
         }
-    
+
         input[type=range]::-webkit-slider-thumb {
             background: #9E0059;
         }
-    
+
         input[type=range]::-moz-range-thumb {
             background: #9E0059;
         }
-    
+
         #ctrls>.tab.active {
             background-color: #9E0059;
         }
-    
+
         #ctrls>.tab {
             border-bottom: 1px solid #9E0059;
         }
@@ -50,21 +57,190 @@
             filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
         }
 
-        .enabled > .xyz-icon {
+        .enabled>.xyz-icon {
             filter: invert(11%) sepia(69%) saturate(5057%) hue-rotate(314deg) brightness(92%) contrast(109%);
         }
 
         .tabulator-headers {
             display: none;
         }
+
+        h1 {
+            color: #9E0059;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #pink {
+            background-color: #EE266D;
+        }
+
+        #burgundy {
+            background-color: #9E0059;
+        }
+
+        #cyan {
+            background-color: #00AEEF;
+        }
+
+        #green {
+            background-color: #008D48;
+        }
+
+        #orange {
+            background-color: #E85713;
+        }
+
+        #slate {
+            background-color: #353d42;
+        }
+
+        .pink-box {
+            background-color: #fff;
+            color: #9E0059;
+            padding: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .text-box {
+            background-color: #fff;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 3px;
+            padding: 16px 32px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+        }
+
+        .btn.active {
+            background-color: #9E0059;
+        }
+
+        .darkish {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .light {
+            color: #222;
+            border: 3px solid #222;
+        }
+
+        .pink-bg {
+            color: #fff;
+            background-color: #9E0059;
+        }
+
+        .pink-br {
+            border: 3px solid #9E0059;
+        }
+
+        #postcode-search {
+            width: 100%;
+            height: 30px;
+            font-family: inherit;
+            font-size: 16px;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .location {
+            display: grid;
+            grid-gap: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .location a {
+            color: #9E0059;
+        }
+
+        .location .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #9E0059;
+        }
+
+        .location .title-btn {
+            font-size: 30px;
+            color: #9E0059;
+            font-weight: bold;
+        }
+
+        .location .title-btn:hover {
+            cursor: pointer;
+        }
+
+        .location .expander {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 24px;
+            width: 24px;
+            background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_up.svg);
+        }
+
+        .collapsed ._grid {
+            display: none !important;
+        }
+
+        .collapsed .expander {
+            background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_down.svg);
+        }
+
+        .location .exit {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 24px;
+            width: 24px;
+            background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_exit.svg);
+        }
+
+        .location_drop {
+            width: 20px;
+            height: 20px;
+        }
+
+        .location_icon {
+            width: 15px;
+            height: 15px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .location .grid {
+            display: grid;
+            grid-gap: 5px;
+        }
+
+        .align-flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
     </style>
 </head>
 
-<body
-    data-nanoid={{:nanoid}}
-    data-log={{:log}}
-    data-token={{:token}}
-    data-login={{:login}}>
+<body>
 
     <div id="Map" class="mapview map" style="margin-top: 0;"></div>
 
@@ -78,6 +254,198 @@
             <div class="xyz-icon icon-layers"></div>
             <div class="listview">
                 <div id="layers"></div>
+            </div>
+        </div>
+
+        <div class="tab" style="border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0;">
+            <div class="xyz-icon icon-filter-list"></div>
+            <div class="listview">
+
+                <div style="padding: 10px; background-color: white;">
+                    <h1>Services Offered</h1>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="serviceFilter" data-service="service_initial_advice">
+                        <div></div><span>Initial Advice</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="serviceFilter" data-service="service_written_advice">
+                        <div></div><span>Written Advice</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="serviceFilter" data-service="service_form_filling">
+                        <div></div><span>Form Filling</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="serviceFilter" data-service="service_case_work">
+                        <div></div><span>Casework</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="serviceFilter" data-service="service_representation">
+                        <div></div><span>Representation</span>
+                    </label>
+                </div>
+
+                <div style="padding: 10px; background-color: white; border-bottom: 1px solid #f0f0f0;">
+                    <h1>Boroughs</h1>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Barking and Dagenham">
+                        <div></div><span>Barking and Dagenham</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Barnet">
+                        <div></div><span>Barnet</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Bexley">
+                        <div></div><span>Bexley</span>
+                    </label>
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Brent">
+                        <div></div><span>Brent</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Bromley">
+                        <div></div><span>Bromley</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Camden">
+                        <div></div><span>Camden</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="City of London">
+                        <div></div><span>City of London</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Croydon">
+                        <div></div><span>Croydon</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Ealing">
+                        <div></div><span>Ealing</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Enfield">
+                        <div></div><span>Enfield</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Greenwich">
+                        <div></div><span>Greenwich</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Hackney">
+                        <div></div><span>Hackney</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Hammersmith and Fulham">
+                        <div></div><span>Hammersmith and Fulham</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Haringey">
+                        <div></div><span>Haringey</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Harrow">
+                        <div></div><span>Harrow</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Havering">
+                        <div></div><span>Havering</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Hillingdon">
+                        <div></div><span>Hillingdon</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Hounslow">
+                        <div></div><span>Hounslow</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Islington">
+                        <div></div><span>Islington</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Kensington and Chelsea">
+                        <div></div><span>Kensington and Chelsea</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Kingston upon Thames">
+                        <div></div><span>Kingston upon Thames</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Lambeth">
+                        <div></div><span>Lambeth</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Lewisham">
+                        <div></div><span>Lewisham</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Merton">
+                        <div></div><span>Merton</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Newham">
+                        <div></div><span>Newham</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Redbridge">
+                        <div></div><span>Redbridge</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Richmond-upon-Thames">
+                        <div></div><span>Richmond-upon-Thames</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Southwark">
+                        <div></div><span>Southwark</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Sutton">
+                        <div></div><span>Sutton</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Tower Hamlets">
+                        <div></div><span>Tower Hamlets</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Wandsworth">
+                        <div></div><span>Wandsworth</span>
+                    </label>
+
+                    <label class="input-checkbox">
+                        <input type="checkbox" class="boroughFilter" data-borough="Westminster">
+                        <div></div><span>Westminster</span>
+                    </label>
+
+                </div>
+
             </div>
         </div>
 
