@@ -38,7 +38,8 @@
                     "dbs": "XYZ",
                     "mvt_cache": "gla.boroughs__mvts",
                     "table": "website.vw_london_glx_geodata_admin_lad_5m",
-                    "geom_3857": "geom_3857",
+                    "geom": "geom_3857",
+                    "srid": "3857",
                     "style": {
                         "default": {
                             "strokeWidth": 2,
@@ -337,18 +338,16 @@
                         }
                     ],
                     "dataview": {
-                        "tables": {
-                            "gla": {
-                                "display": true,
-                                "title": "Locations",
-                                "from": "gla.gla",
-                                "columns": [
-                                    {
-                                        "title": "Organisation",
-                                        "field": "organisation_short"
-                                    }
-                                ]
-                            }
+                        "gla": {
+                            "display": true,
+                            "title": "Locations",
+                            "from": "gla.gla",
+                            "columns": [
+                                {
+                                    "title": "Organisation",
+                                    "field": "organisation_short"
+                                }
+                            ]
                         }
                     },
                     "hover": {
@@ -365,7 +364,10 @@
                         "markerMax": 25,
                         "marker": {
                             "url": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@master/icon-pin_slate.svg",
-                            "anchor": [0.5, 1],
+                            "anchor": [
+                                0.5,
+                                1
+                            ],
                             "scale": 1
                         },
                         "markerMulti": {
