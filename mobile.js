@@ -1,4 +1,4 @@
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
 
 //move map up on document scroll
 document.addEventListener('scroll', () => document.getElementById('Map').style['marginTop'] = -parseInt(window.pageYOffset / 2) + 'px');
@@ -48,7 +48,7 @@ function init(_xyz) {
             class="logo"
             target="_blank"
             href="https://geolytix.co.uk"
-            style="background-image: url('https://cdn.jsdelivr.net/gh/GEOLYTIX/geolytix@master/public/geolytix.svg');">`
+            style="background-image: url('https://cdn.jsdelivr.net/gh/GEOLYTIX/geolytix/public/geolytix.svg');">`
     },
     view: {
       lat: _xyz.hooks.current.lat,
@@ -103,7 +103,7 @@ function init(_xyz) {
 
     // Locator
     _xyz.mapview.locate.icon = {
-      url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-pin_locate.svg",
+      url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-pin_locate.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
@@ -118,6 +118,7 @@ function init(_xyz) {
     target_id: 'layers',
     key: 'gla',
     visible: ['organisation_short'],
+    layout: "fitColumns",
     initialSort: [
       {
         column: 'organisation_short', dir: 'asc'
@@ -140,29 +141,88 @@ function init(_xyz) {
 
 
 
-  // if (_xyz.workspace.locale.gazetteer) {
+  if (_xyz.workspace.locale.gazetteer) {
 
-  //   const gazetteer = _xyz.utils.wire()`
-  //   <div id="gazetteer" class="display-none">
-  //     <div class="input-drop">
-  //         <input type="text" placeholder="e.g. London">
-  //         <ul>`;
+    const gazetteer = _xyz.utils.wire()`
+    <div id="gazetteer" class="display-none">
+      <div class="input-drop">
+          <input type="text" placeholder="e.g. London">
+          <ul>`;
 
-  //   const btnGazetteer = _xyz.utils.wire()`
-  //   <button onclick=${e=>{
-  //     e.preventDefault();
-  //     e.target.classList.toggle('enabled');
-  //     gazetteer.classList.toggle('display-none');
-  //   }}><div class="xyz-icon icon-search">`;
+    const btnGazetteer = _xyz.utils.wire()`
+    <button onclick=${e=>{
+      e.preventDefault();
+      e.target.classList.toggle('enabled');
+      gazetteer.classList.toggle('display-none');
+    }}><div class="xyz-icon icon-search">`;
 
-  //   document.querySelector('.btn-column').insertBefore(btnGazetteer,document.querySelector('.btn-column').firstChild);
+    document.querySelector('.btn-column').insertBefore(btnGazetteer,document.querySelector('.btn-column').firstChild);
 
-  //   document.body.insertBefore(gazetteer, document.querySelector('.btn-column'));
+    document.body.insertBefore(gazetteer, document.querySelector('.btn-column'));
 
-  //   _xyz.gazetteer.init({
-  //     group: gazetteer.querySelector('.input-drop'),
-  //   });
-  // }
+    _xyz.gazetteer.init({
+      group: gazetteer.querySelector('.input-drop'),
+    });
+
+    _xyz.gazetteer.icon = {
+      url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-pin_gazetteer.svg",
+      anchor: [0.5, 1],
+      scale: 0.5
+    }
+
+    _xyz.gazetteer.callback = point => {
+
+      const xhr = new XMLHttpRequest();
+  
+      xhr.open('GET',
+        _xyz.host + '/api/location/select/latlng/nnearest?' +
+        _xyz.utils.paramString({
+          locale: _xyz.workspace.locale.key,
+          layer: 'Advice Center',
+          table: 'gla.gla',
+          nnearest: 3,
+          lng: point.coordinates[0],
+          lat: point.coordinates[1],
+          filter: JSON.stringify(layer.filter.current),
+        }));
+
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.responseType = 'json';
+
+      xhr.onload = e => {
+
+        if (e.target.status !== 200) return;
+
+        const geoJSON = new _xyz.mapview.lib.format.GeoJSON();
+
+        const features = [];
+
+        e.target.response.forEach(f => {
+
+          features.push(geoJSON.readFeature({
+            type: 'Feature',
+            geometry: JSON.parse(f.geomj)
+          }, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+          }));
+
+        });
+
+        const gazSource = _xyz.gazetteer.layer.getSource();
+
+        gazSource.addFeatures(features);
+
+        _xyz.mapview.flyToBounds(_xyz.gazetteer.layer.getSource().getExtent());
+
+        features.forEach(f => gazSource.removeFeature(f));
+
+      };
+
+      xhr.send();
+
+    }
+  }
 
 
 
@@ -179,7 +239,7 @@ function init(_xyz) {
         color: '#00AEEF',
         colorDark: '#007BBC',
         marker: {
-          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-pin_blue.svg",
+          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-pin_blue.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -188,7 +248,7 @@ function init(_xyz) {
         color: '#008D48',
         colorDark: '#005A15',
         marker: {
-          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-pin_green.svg",
+          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-pin_green.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -197,7 +257,7 @@ function init(_xyz) {
         color: '#E85713',
         colorDark: '#CF3E00',
         marker: {
-          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-pin_orange.svg",
+          url: "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-pin_orange.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -266,7 +326,7 @@ function init(_xyz) {
     var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 20px 1fr 20px 1fr;">`;
 
     viewGrid.appendChild(
-      _xyz.utils.wire()`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_location.svg);" class="location_drop">`);
+      _xyz.utils.wire()`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon_location.svg);" class="location_drop">`);
 
     var viewAddress = _xyz.utils.wire()`<div style="grid-column: 2; grid-row: 1/4;">`;
 
@@ -295,7 +355,7 @@ function init(_xyz) {
     if (fields.website) {
       viewGrid.appendChild(
         _xyz.utils.wire()`
-        <div style="grid-column: 3; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_link.svg);" class="location_icon">`);
+        <div style="grid-column: 3; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon_link.svg);" class="location_icon">`);
 
       viewGrid.appendChild(
         _xyz.utils.wire()`
@@ -305,7 +365,7 @@ function init(_xyz) {
     if (fields.phone) {
       viewGrid.appendChild(
         _xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_phone.svg);" class="location_icon">`);
+          <div style="grid-column: 3; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon_phone.svg);" class="location_icon">`);
       viewGrid.appendChild(
         _xyz.utils.wire()`
           <div style="grid-column: 4; grid-row: 2;">${fields.phone}`);
@@ -314,7 +374,7 @@ function init(_xyz) {
     if (fields.email) {
       viewGrid.appendChild(
         _xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon_email.svg);" class="location_icon">`);
+          <div style="grid-column: 3; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon_email.svg);" class="location_icon">`);
       viewGrid.appendChild(
         _xyz.utils.wire()`
           <a style="grid-column: 4; grid-row: 3;" href="${'mailto:' + fields.email}">Email</a>`);
@@ -325,7 +385,7 @@ function init(_xyz) {
           <div style="
           grid-column: 1;
           grid-row: 5;
-          background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-catchment.svg);
+          background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-catchment.svg);
           height: 30px;
           background-size: contain;
           background-repeat: no-repeat;">`);
@@ -444,31 +504,31 @@ function init(_xyz) {
     viewGrid.appendChild(_xyz.utils.wire()`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 14px;">Services offered:`)
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 2;">One-off initial advice.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 3;">Written advice.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 4;">Help with filling in forms.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 5;">Help with putting a case together for court.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 6;">Representation at court.`);
@@ -479,7 +539,7 @@ function init(_xyz) {
 
     if (fields.translation_notes) {
       viewGrid.appendChild(_xyz.utils.wire()`
-        <div style="grid-column: 1; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+        <div style="grid-column: 1; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
       viewGrid.appendChild(_xyz.utils.wire()`
         <div style="grid-column: 2; grid-row: 1;">
           <div style="font-weight: bold">Access</div>
@@ -488,7 +548,7 @@ function init(_xyz) {
 
     if (fields.access) {
       viewGrid.appendChild(_xyz.utils.wire()`
-        <div style="grid-column: 3; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla@latest/icon-translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+        <div style="grid-column: 3; grid-row: 1; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/icon-translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
       viewGrid.appendChild(_xyz.utils.wire()`
         <div style="grid-column: 4; grid-row: 1;">
           <div style="font-weight: bold">Translation</div>
@@ -502,6 +562,12 @@ function init(_xyz) {
     locations.closest('.tab').style.display = 'block';
 
     locations.closest('.tab').click();
+
+    if (window.pageYOffset <= 200) window.scroll({
+      top: 200,
+      left: 0,
+      behavior: 'smooth'
+    });
 
   };  
 
