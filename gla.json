@@ -30,7 +30,7 @@
                         "© Ordanance Survey": "https://ordnancesurvey.co.uk"
                     },
                     "format": "tiles",
-                    "URI": "https://api.ordnancesurvey.co.uk/mapping_api/v1/service/zxy/EPSG%3A3857/Light%203857/{z}/{x}/{y}.png?&provider=OS"
+                    "URI": "/mapping_api/v1/service/zxy/EPSG%3A3857/Light%203857/{z}/{x}/{y}.png?&provider=OS&host=https://api.ordnancesurvey.co.uk"
                 },
                 "Boroughs": {
                     "display": true,
