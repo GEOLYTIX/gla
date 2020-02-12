@@ -1,5 +1,13 @@
 {
     "title": "XYZ GLA",
+  "templates": {
+      "desktop": {
+          "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/desktop.html",
+      },
+      "mobile": {
+          "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/mobile.html",
+      }
+  },
     "locales": {
         "London": {
             "locate": {},
