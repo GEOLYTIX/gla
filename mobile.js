@@ -83,7 +83,7 @@ function init(_xyz) {
       e.target.disabled = (z <= _xyz.workspace.locale.minZoom);
     }}><div class="xyz-icon icon-remove">`;
 
-  document.querySelector('.btn-column').appendChild(btnZoomOut);  
+  document.querySelector('.btn-column').appendChild(btnZoomOut);
 
   _xyz.mapview.node.addEventListener('changeEnd', () => {
     const z = _xyz.map.getView().getZoom();
@@ -150,13 +150,13 @@ function init(_xyz) {
           <ul>`;
 
     const btnGazetteer = _xyz.utils.wire()`
-    <button onclick=${e=>{
-      e.preventDefault();
-      e.target.classList.toggle('enabled');
-      gazetteer.classList.toggle('display-none');
-    }}><div class="xyz-icon icon-search">`;
+    <button onclick=${e => {
+        e.preventDefault();
+        e.target.classList.toggle('enabled');
+        gazetteer.classList.toggle('display-none');
+      }}><div class="xyz-icon icon-search">`;
 
-    document.querySelector('.btn-column').insertBefore(btnGazetteer,document.querySelector('.btn-column').firstChild);
+    document.querySelector('.btn-column').insertBefore(btnGazetteer, document.querySelector('.btn-column').firstChild);
 
     document.body.insertBefore(gazetteer, document.querySelector('.btn-column'));
 
@@ -173,16 +173,18 @@ function init(_xyz) {
     _xyz.gazetteer.callback = point => {
 
       const xhr = new XMLHttpRequest();
-  
+
       xhr.open('GET',
-        _xyz.host + '/api/location/select/latlng/nnearest?' +
+        _xyz.host + '/api/query?' +
         _xyz.utils.paramString({
+          template: 'get_nnearest',
           locale: _xyz.workspace.locale.key,
           layer: 'Advice Center',
           table: 'gla.gla',
-          nnearest: 3,
-          lng: point.coordinates[0],
-          lat: point.coordinates[1],
+          n: 3,
+          coords: res.coordinates,
+          lng: res.coordinates[0],
+          lat: res.coordinates[1],
           filter: JSON.stringify(layer.filter.current),
         }));
 
@@ -201,7 +203,10 @@ function init(_xyz) {
 
           features.push(geoJSON.readFeature({
             type: 'Feature',
-            geometry: JSON.parse(f.geomj)
+            geometry: {
+              type: 'Point',
+              coordinates: f.coords
+            }
           }, {
             dataProjection: 'EPSG:4326',
             featureProjection: 'EPSG:3857'
@@ -272,7 +277,7 @@ function init(_xyz) {
 
 
   _xyz.locations.selectCallback = location => {
- 
+
     // Draw location marker.
     location.Marker = _xyz.mapview.geoJSON({
       geometry: {
@@ -391,7 +396,7 @@ function init(_xyz) {
           background-repeat: no-repeat;">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
-          <div style="grid-column: 2/5; grid-row: 5;">${fields.coverage}`);     
+          <div style="grid-column: 2/5; grid-row: 5;">${fields.coverage}`);
 
     }
 
@@ -504,31 +509,31 @@ function init(_xyz) {
     viewGrid.appendChild(_xyz.utils.wire()`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 14px;">Services offered:`)
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/' + (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 2;">One-off initial advice.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/' + (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 3;">Written advice.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/' + (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 4;">Help with filling in forms.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/' + (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 5;">Help with putting a case together for court.`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
-    <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+    <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/' + (fields.service_representation ? 'icon_checked' : 'icon_unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
     viewGrid.appendChild(_xyz.utils.wire()`
     <div style="grid-column: 2; grid-row: 6;">Representation at court.`);
@@ -543,7 +548,7 @@ function init(_xyz) {
       viewGrid.appendChild(_xyz.utils.wire()`
         <div style="grid-column: 2; grid-row: 1;">
           <div style="font-weight: bold">Access</div>
-          <div style="white-space: pre-wrap;">${fields.access}</div>`);            
+          <div style="white-space: pre-wrap;">${fields.access}</div>`);
     }
 
     if (fields.access) {
@@ -552,7 +557,7 @@ function init(_xyz) {
       viewGrid.appendChild(_xyz.utils.wire()`
         <div style="grid-column: 4; grid-row: 1;">
           <div style="font-weight: bold">Translation</div>
-          <div style="white-space: pre-wrap;">${fields.translation_notes}</div>`);          
+          <div style="white-space: pre-wrap;">${fields.translation_notes}</div>`);
     }
 
     location.view.appendChild(viewGrid);
@@ -569,7 +574,7 @@ function init(_xyz) {
       behavior: 'smooth'
     });
 
-  };  
+  };
 
   // Select locations from hooks.
   _xyz.hooks.current.locations.forEach(_hook => {
@@ -616,7 +621,7 @@ function init(_xyz) {
       e.stopPropagation();
 
       if (e.target.checked) {
-  
+
         // Add value to filter array.
         layer.filter.current['borough'].in.push(input.dataset.borough);
 
