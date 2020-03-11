@@ -2,10 +2,10 @@
     "title": "XYZ GLA",
     "templates": {
         "desktop": {
-            "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/desktop.html"
+            "template": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/desktop.html"
         },
         "mobile": {
-            "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/mobile.html"
+            "template": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/mobile.html"
         }
     },
     "locales": {
