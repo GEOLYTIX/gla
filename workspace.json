@@ -346,14 +346,19 @@
                         }
                     ],
                     "dataview": {
-                        "gla": {
+                        "Locations": {
+                            "template": false,
                             "display": true,
-                            "title": "Locations",
-                            "from": "gla.gla",
-                            "columns": [
+                            "dataviews": [
                                 {
-                                    "title": "Organisation",
-                                    "field": "organisation_short"
+                                    "query": "gla_organisation",
+                                    "layout": null,
+                                    "columns": [
+                                        {
+                                            "title": "Organisation",
+                                            "field": "organisation_short"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -729,6 +734,12 @@
                     ]
                 }
             }
+        }
+    },
+    "templates": {
+        "gla_organisation": {
+            "template": "SELECT organisation_short FROM gla.gla;",
+            "dbs": "XYZ"
         }
     }
 }
