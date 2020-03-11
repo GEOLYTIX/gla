@@ -738,7 +738,7 @@
     },
     "templates": {
         "gla_organisation": {
-            "template": "SELECT organisation_short FROM gla.gla;",
+            "template": "SELECT organisation_short FROM gla.gla ORDER BY organisation_short;",
             "dbs": "XYZ"
         }
     }
