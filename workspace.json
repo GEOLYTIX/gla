@@ -6,6 +6,19 @@
         },
         "mobile": {
             "template": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/mobile.html"
+        },
+        "__desktop": {
+          "template": "http://localhost:3000/gla/views/gla_desktop.html"
+        },
+        "__mobile": {
+            "template": "http://localhost:3000/gla/views/gla_mobile.html"
+        },
+        "gla_organisation": {
+            "template": "SELECT id, organisation_short FROM gla.gla  WHERE true ${filter} ORDER BY organisation_short;",
+            "dbs": "XYZ"
+        },
+        "table_view": {
+            "template": "http://localhost:3000/gla/views/table_view.html"
         }
     },
     "locales": {
@@ -345,23 +358,19 @@
                             "type": "images"
                         }
                     ],
-                    "dataview": {
-                        "Locations": {
-                            "template": false,
-                            "display": true,
-                            "dataviews": [
-                                {
-                                    "query": "gla_organisation",
-                                    "layout": null,
-                                    "columns": [
-                                        {
-                                            "title": "Organisation",
-                                            "field": "organisation_short"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
+                    "dataviews": {
+                      "Locations": {
+                        "display": true,
+                        "query": "gla_organisation",
+                        "selectable": true,
+                        "viewport": true,
+                        "columns": [
+                          {
+                            "title": "Organisation",
+                            "field": "organisation_short"
+                          }
+                        ]
+                      }
                     },
                     "hover": {
                         "field": "organisation_short"
@@ -734,12 +743,6 @@
                     ]
                 }
             }
-        }
-    },
-    "templates": {
-        "gla_organisation": {
-            "template": "SELECT organisation_short FROM gla.gla ORDER BY organisation_short;",
-            "dbs": "XYZ"
         }
     }
 }
