@@ -126,13 +126,13 @@ function init(_xyz) {
         field: 'organisation_short'
       }
     ],
-    rowClick: (e, row) => _xyz.locations.select({
-      locale: _xyz.workspace.locale.key,
-      layer: layer,
-      table: layer.table,
-      id: row.getData().id,
-      _flyTo: true,
-    })
+    // rowClick: (e, row) => _xyz.locations.select({
+    //   locale: _xyz.workspace.locale.key,
+    //   layer: layer,
+    //   table: layer.table,
+    //   id: row.getData().id,
+    //   _flyTo: true,
+    // })
   })
 
 
