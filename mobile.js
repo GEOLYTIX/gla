@@ -113,29 +113,27 @@ function init(_xyz) {
   const layer = _xyz.layers.list['Advice Center'];
 
 
-  const table = _xyz.dataview.layerTable({
+  const table = _xyz.dataview.dataview({
+    target: document.getElementById('layers'),
+    query: 'gla_organisation',
     layer: layer,
-    target_id: 'layers',
-    key: 'gla',
-    visible: ['organisation_short'],
-    layout: "fitColumns",
-    initialSort: [
+    viewport: true,
+    active: true,
+    selectable: true,
+    columns: [
       {
-        column: 'organisation_short', dir: 'asc'
+        title: 'Organisation',
+        field: 'organisation_short'
       }
     ],
-    groupStartOpen: false,
-    groupToggleElement: 'header',
-    rowClick: (e, row) => {
-      _xyz.locations.select({
-        locale: _xyz.workspace.locale.key,
-        layer: layer,
-        table: layer.table,
-        id: row.getData().qid,
-        _flyTo: true,
-      });
-    }
-  });
+    rowClick: (e, row) => _xyz.locations.select({
+      locale: _xyz.workspace.locale.key,
+      layer: layer,
+      table: layer.table,
+      id: row.getData().id,
+      _flyTo: true,
+    })
+  })
 
 
 
