@@ -113,7 +113,7 @@ function init(_xyz) {
   const layer = _xyz.layers.list['Advice Center'];
 
 
-  const table = _xyz.dataview.dataview({
+  const table = _xyz.dataviews.dataview({
     target: document.getElementById('layers'),
     query: 'gla_organisation',
     layer: layer,
@@ -125,14 +125,7 @@ function init(_xyz) {
         title: 'Organisation',
         field: 'organisation_short'
       }
-    ],
-    // rowClick: (e, row) => _xyz.locations.select({
-    //   locale: _xyz.workspace.locale.key,
-    //   layer: layer,
-    //   table: layer.table,
-    //   id: row.getData().id,
-    //   _flyTo: true,
-    // })
+    ]
   })
 
 
