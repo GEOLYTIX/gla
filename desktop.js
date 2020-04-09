@@ -364,7 +364,7 @@ _xyz({
 
     const layer = _xyz.layers.list['Advice Center'];
 
-    const table = _xyz.dataview.dataview({
+    const table = _xyz.dataviews.dataview({
       target: document.getElementById('List'),
       query: 'gla_organisation',
       layer: layer,
@@ -376,14 +376,7 @@ _xyz({
           title: 'Organisation',
           field: 'organisation_short'
         }
-      ],
-      // rowClick: (e, row) => _xyz.locations.select({
-      //   locale: _xyz.workspace.locale.key,
-      //   layer: layer,
-      //   table: layer.table,
-      //   id: row.getData().id,
-      //   _flyTo: true,
-      // })
+      ]
     })
 
     setBoroughFilter();
