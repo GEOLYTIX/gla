@@ -364,7 +364,7 @@ _xyz({
 
     const layer = _xyz.layers.list['Advice Center'];
 
-    const table = _xyz.dataviews.dataview({
+    const table = _xyz.dataviews.create({
       target: document.getElementById('List'),
       query: 'gla_organisation',
       layer: layer,
