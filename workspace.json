@@ -2,10 +2,10 @@
     "title": "XYZ GLA",
     "templates": {
         "desktop": {
-            "template": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/desktop.html"
+            "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/desktop.html"
         },
         "mobile": {
-            "template": "https://cdn.jsdelivr.net/gh/GEOLYTIX/gla/mobile.html"
+            "template": "https://api.github.com/repos/GEOLYTIX/gla/contents/mobile.html"
         },
         "__desktop": {
           "template": "http://localhost:3000/gla/views/gla_desktop.html"
@@ -16,9 +16,6 @@
         "gla_organisation": {
             "template": "SELECT id, organisation_short FROM gla.gla  WHERE true ${filter} ORDER BY organisation_short;",
             "dbs": "XYZ"
-        },
-        "table_view": {
-            "template": "http://localhost:3000/gla/views/table_view.html"
         }
     },
     "locales": {
