@@ -19,7 +19,7 @@ window.onload = () => _xyz({
         color: '#00AEEF',
         colorDark: '#007BBC',
         marker: {
-          url: "https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-pin_blue.svg",
+          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_blue.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -28,7 +28,7 @@ window.onload = () => _xyz({
         color: '#008D48',
         colorDark: '#005A15',
         marker: {
-          url: "https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-pin_green.svg",
+          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_green.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -37,7 +37,7 @@ window.onload = () => _xyz({
         color: '#E85713',
         colorDark: '#CF3E00',
         marker: {
-          url: "https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-pin_orange.svg",
+          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_orange.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -103,7 +103,7 @@ window.onload = () => _xyz({
       var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 20px 1fr 20px 1fr;">`;
 
       viewGrid.appendChild(
-        _xyz.utils.wire()`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon_location.svg);" class="location_drop">`);
+        _xyz.utils.wire()`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_location.svg);" class="location_drop">`);
 
       var viewAddress = _xyz.utils.wire()`<div style="grid-column: 2; grid-row: 1/4;">`;
 
@@ -132,7 +132,7 @@ window.onload = () => _xyz({
       if (fields.website) {
         viewGrid.appendChild(
           _xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 1; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon_link.svg);" class="location_icon">`);
+          <div style="grid-column: 3; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_link.svg);" class="location_icon">`);
 
         viewGrid.appendChild(
           _xyz.utils.wire()`
@@ -142,7 +142,7 @@ window.onload = () => _xyz({
       if (fields.phone) {
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <div style="grid-column: 3; grid-row: 2; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon_phone.svg);" class="location_icon">`);
+            <div style="grid-column: 3; grid-row: 2; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_phone.svg);" class="location_icon">`);
         viewGrid.appendChild(
           _xyz.utils.wire()`
             <div style="grid-column: 4; grid-row: 2;">${fields.phone}`);
@@ -151,7 +151,7 @@ window.onload = () => _xyz({
       if (fields.email) {
         viewGrid.appendChild(
           _xyz.utils.wire()`
-            <div style="grid-column: 3; grid-row: 3; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon_email.svg);" class="location_icon">`);
+            <div style="grid-column: 3; grid-row: 3; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_email.svg);" class="location_icon">`);
         viewGrid.appendChild(
           _xyz.utils.wire()`
             <a style="grid-column: 4; grid-row: 3;" href="${'mailto:' + fields.email}">Email</a>`);
@@ -162,7 +162,7 @@ window.onload = () => _xyz({
             <div style="
             grid-column: 1;
             grid-row: 5;
-            background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-catchment.svg);
+            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-catchment.svg);
             height: 30px;
             background-size: contain;
             background-repeat: no-repeat;">`);
@@ -291,31 +291,31 @@ window.onload = () => _xyz({
 
 
       viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
       <div style="grid-column: 2; grid-row: 2;">One-off initial advice.`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
       <div style="grid-column: 2; grid-row: 3;">Written advice.`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
       <div style="grid-column: 2; grid-row: 4;">Help with filling in forms.`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
       <div style="grid-column: 2; grid-row: 5;">Help with putting a case together for court.`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(_xyz.utils.wire()`
       <div style="grid-column: 2; grid-row: 6;">Representation at court.`);
@@ -328,7 +328,7 @@ window.onload = () => _xyz({
 
       if (fields.translation_notes) {
         viewGrid.appendChild(_xyz.utils.wire()`
-          <div style="grid-column: 1; grid-row: 1; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+          <div style="grid-column: 1; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
         viewGrid.appendChild(_xyz.utils.wire()`
           <div style="grid-column: 2; grid-row: 1;">
             <div style="font-weight: bold">Access</div>
@@ -337,7 +337,7 @@ window.onload = () => _xyz({
 
       if (fields.access) {
         viewGrid.appendChild(_xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 1; background-image: url(https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+          <div style="grid-column: 3; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
         viewGrid.appendChild(_xyz.utils.wire()`
           <div style="grid-column: 4; grid-row: 1;">
             <div style="font-weight: bold">Translation</div>
@@ -528,7 +528,7 @@ window.onload = () => _xyz({
 
     // Locator
     _xyz.mapview.locate.icon = {
-      url: "https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-pin_locate.svg",
+      url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_locate.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
@@ -552,7 +552,7 @@ window.onload = () => _xyz({
     });
 
     _xyz.gazetteer.icon = {
-      url: "https://gitcdn.xyz/repo/GEOLYTIX/gla/master/icon-pin_gazetteer.svg",
+      url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_gazetteer.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
