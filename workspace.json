@@ -73,12 +73,12 @@
                     "cluster_dbscan": 0.02,
                     "infoj": [
                         {
-                            "label": "Organisation",
+                            "title": "Organisation",
                             "field": "organisation_short",
                             "type": "text"
                         },
                         {
-                            "label": "Address",
+                            "title": "Address",
                             "type": "label"
                         },
                         {
@@ -98,14 +98,14 @@
                             "type": "text"
                         },
                         {
-                            "label": "Postcode",
+                            "title": "Postcode",
                             "field": "postcode",
                             "type": "text",
                             "filter": "like",
                             "filterZoom": true
                         },
                         {
-                            "label": "Borough",
+                            "title": "Borough",
                             "field": "borough",
                             "type": "text",
                             "filter": {
@@ -146,47 +146,47 @@
                             }
                         },
                         {
-                            "label": "Opening Hours",
+                            "title": "Opening Hours",
                             "type": "label"
                         },
                         {
-                            "label": "Sunday",
+                            "title": "Sunday",
                             "field": "hours_sunday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Monday",
+                            "title": "Monday",
                             "field": "hours_monday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Tuesday",
+                            "title": "Tuesday",
                             "field": "hours_tuesday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Wednesday",
+                            "title": "Wednesday",
                             "field": "hours_wednesday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Thursday",
+                            "title": "Thursday",
                             "field": "hours_thursday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Friday",
+                            "title": "Friday",
                             "field": "hours_friday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Saturday",
+                            "title": "Saturday",
                             "field": "hours_saturday",
                             "type": "text",
                             "inline": true
@@ -196,48 +196,48 @@
                             "type": "text"
                         },
                         {
-                            "label": "Phone",
+                            "title": "Phone",
                             "field": "phone",
                             "type": "text"
                         },
                         {
-                            "label": "Sunday",
+                            "title": "Sunday",
                             "field": "phone_sunday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Monday",
+                            "title": "Monday",
                             "field": "phone_monday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Tuesday",
+                            "title": "Tuesday",
                             "field": "phone_tuesday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Wednesday",
+                            "title": "Wednesday",
                             "field": "phone_wednesday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Thursday",
+                            "title": "Thursday",
                             "field": "phone_thursday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Friday",
+                            "title": "Friday",
                             "field": "phone_friday",
                             "type": "text",
                             "inline": true
                         },
                         {
-                            "label": "Saturday",
+                            "title": "Saturday",
                             "field": "phone_saturday",
                             "type": "text",
                             "inline": true
@@ -247,22 +247,22 @@
                             "type": "text"
                         },
                         {
-                            "label": "EMail",
+                            "title": "EMail",
                             "field": "email",
                             "type": "text"
                         },
                         {
-                            "label": "Website",
+                            "title": "Website",
                             "field": "website",
                             "type": "text"
                         },
                         {
-                            "label": "Areas of law",
+                            "title": "Areas of law",
                             "field": "areas_of_law",
                             "type": "text"
                         },
                         {
-                            "label": "Services",
+                            "title": "Services",
                             "type": "label"
                         },
                         {
@@ -306,7 +306,7 @@
                             "type": "text"
                         },
                         {
-                            "label": "Disability Support",
+                            "title": "Disability Support",
                             "type": "label"
                         },
                         {
@@ -339,12 +339,12 @@
                             "filter": "boolean"
                         },
                         {
-                            "label": "Areas / People served",
+                            "title": "Areas / People served",
                             "field": "coverage",
                             "type": "text"
                         },
                         {
-                            "label": "Images",
+                            "title": "Images",
                             "field": "images",
                             "type": "images"
                         }
@@ -410,19 +410,19 @@
                     "cluster_dbscan": 0.015,
                     "infoj": [
                         {
-                            "label": "Organisation",
+                            "title": "Organisation",
                             "field": "organisation",
                             "type": "text",
                             "edit": true
                         },
                         {
-                            "label": "Organisation Short",
+                            "title": "Organisation Short",
                             "field": "organisation_short",
                             "type": "text",
                             "edit": true
                         },
                         {
-                            "label": "Address",
+                            "title": "Address",
                             "type": "label"
                         },
                         {
@@ -446,14 +446,14 @@
                             "edit": true
                         },
                         {
-                            "label": "Postcode",
+                            "title": "Postcode",
                             "field": "postcode",
                             "type": "text",
                             "filter": "like",
                             "edit": true
                         },
                         {
-                            "label": "Borough",
+                            "title": "Borough",
                             "field": "borough",
                             "type": "text",
                             "edit": true,
@@ -495,53 +495,53 @@
                             }
                         },
                         {
-                            "label": "Opening Hours",
+                            "title": "Opening Hours",
                             "type": "label"
                         },
                         {
-                            "label": "Sunday",
+                            "title": "Sunday",
                             "field": "hours_sunday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Monday",
+                            "title": "Monday",
                             "field": "hours_monday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Tuesday",
+                            "title": "Tuesday",
                             "field": "hours_tuesday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Wednesday",
+                            "title": "Wednesday",
                             "field": "hours_wednesday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Thursday",
+                            "title": "Thursday",
                             "field": "hours_thursday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Friday",
+                            "title": "Friday",
                             "field": "hours_friday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Saturday",
+                            "title": "Saturday",
                             "field": "hours_saturday",
                             "type": "text",
                             "inline": true,
@@ -553,55 +553,55 @@
                             "edit": true
                         },
                         {
-                            "label": "Phone",
+                            "title": "Phone",
                             "field": "phone",
                             "type": "textarea",
                             "edit": true
                         },
                         {
-                            "label": "Sunday",
+                            "title": "Sunday",
                             "field": "phone_sunday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Monday",
+                            "title": "Monday",
                             "field": "phone_monday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Tuesday",
+                            "title": "Tuesday",
                             "field": "phone_tuesday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Wednesday",
+                            "title": "Wednesday",
                             "field": "phone_wednesday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Thursday",
+                            "title": "Thursday",
                             "field": "phone_thursday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Friday",
+                            "title": "Friday",
                             "field": "phone_friday",
                             "type": "text",
                             "inline": true,
                             "edit": true
                         },
                         {
-                            "label": "Saturday",
+                            "title": "Saturday",
                             "field": "phone_saturday",
                             "type": "text",
                             "inline": true,
@@ -613,25 +613,25 @@
                             "edit": true
                         },
                         {
-                            "label": "EMail",
+                            "title": "EMail",
                             "field": "email",
                             "type": "text",
                             "edit": true
                         },
                         {
-                            "label": "Website",
+                            "title": "Website",
                             "field": "website",
                             "type": "text",
                             "edit": true
                         },
                         {
-                            "label": "Areas of law",
+                            "title": "Areas of law",
                             "field": "areas_of_law",
                             "type": "textarea",
                             "edit": true
                         },
                         {
-                            "label": "Services",
+                            "title": "Services",
                             "type": "label"
                         },
                         {
@@ -682,11 +682,11 @@
                             "edit": true
                         },
                         {
-                            "label": "Disability Support",
+                            "title": "Disability Support",
                             "type": "label"
                         },
                         {
-                            "label": "Access",
+                            "title": "Access",
                             "field": "access",
                             "type": "textarea",
                             "edit": true
@@ -720,13 +720,13 @@
                             "edit": true
                         },
                         {
-                            "label": "Areas / People served",
+                            "title": "Areas / People served",
                             "field": "coverage",
                             "type": "textarea",
                             "edit": true
                         },
                         {
-                            "label": "Images",
+                            "title": "Images",
                             "field": "images",
                             "type": "images",
                             "edit": true
