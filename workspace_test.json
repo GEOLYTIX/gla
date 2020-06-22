@@ -2,10 +2,10 @@
     "title": "XYZ GLA",
     "templates": {
         "desktop": {
-            "src": "https://api.github.com/repos/GEOLYTIX/gla/contents/desktop.html"
+            "src": "https://api.github.com/repos/GEOLYTIX/gla/contents/desktop_test.html"
         },
         "mobile": {
-            "src": "https://api.github.com/repos/GEOLYTIX/gla/contents/mobile.html"
+            "src": "https://api.github.com/repos/GEOLYTIX/gla/contents/mobile_test.html"
         },
         "gla_organisation": {
             "template": "SELECT id, organisation_short FROM gla.gla  WHERE true ${filter} ORDER BY organisation_short;",
