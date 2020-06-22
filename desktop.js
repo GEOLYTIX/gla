@@ -1,6 +1,7 @@
 window.onload = () => _xyz({
   host: document.head.dataset.dir,
   hooks: true,
+  locale: 'London',
   callback: _xyz => {
 
     _xyz.mapview.create({
