@@ -3,320 +3,320 @@
 
 <head data-dir="${dir}">
 
-    <title>Greater London Authority - Employment Rights Advice</title>
+  <title>Greater London Authority - Employment Rights Advice</title>
 
-    <link rel="icon" type="image/x-icon" href="${dir}/icons/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="${dir}/icons/favicon.ico" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="${dir}/css/openlayers.css" />
-    <link rel="stylesheet" href="${dir}/css/control.css" />
-    
-    <script src="${dir}/js/tabulator.js" defer></script>
-    <script src="${dir}/js/Chart.min.js" defer></script>
-    <script src="${dir}/js/ol.js" defer></script>
+  <link rel="stylesheet" href="${dir}/css/openlayers.css" />
+  <link rel="stylesheet" href="${dir}/css/control.css" />
 
-    <script src="${dir}/js/xyz_openlayers.js" defer></script>
-    
-    <script src="${dir}/views/gla_desktop.js" defer></script>
-    
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+  <script src="${dir}/js/tabulator.js" defer></script>
+  <script src="${dir}/js/Chart.min.js" defer></script>
+  <script src="${dir}/js/ol.js" defer></script>
 
-        #pink {
-            background-color: #EE266D;
-        }
+  <script src="${dir}/js/xyz_openlayers.js" defer></script>
 
-        #burgundy {
-            background-color: #9E0059;
-        }
+  <script src="${dir}/views/gla_desktop.js" defer></script>
 
-        #cyan {
-            background-color: #00AEEF;
-        }
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        #green {
-            background-color: #008D48;
-        }
+    #pink {
+      background-color: #EE266D;
+    }
 
-        #orange {
-            background-color: #E85713;
-        }
+    #burgundy {
+      background-color: #9E0059;
+    }
 
-        #slate {
-            background-color: #353d42;
-        }
+    #cyan {
+      background-color: #00AEEF;
+    }
 
-        .pink-box {
-            background-color: #fff;
-            color: #9E0059;
-            padding: 10px;
-            font-size: 22px;
-            font-weight: bold;
-        }
+    #green {
+      background-color: #008D48;
+    }
 
-        .text-box {
-            background-color: #fff;
-            padding: 10px;
-            font-size: 16px;
-        }
+    #orange {
+      background-color: #E85713;
+    }
 
-        .btn {
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 3px;
-            padding: 16px 32px;
-        }
+    #slate {
+      background-color: #353d42;
+    }
 
-        .btn:hover {
-            cursor: pointer;
-        }
+    .pink-box {
+      background-color: #fff;
+      color: #9E0059;
+      padding: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-        .btn.active {
-            background-color: #9E0059;
-        }
+    .text-box {
+      background-color: #fff;
+      padding: 10px;
+      font-size: 16px;
+    }
 
-        .darkish {
-            background-color: #222;
-            color: #fff;
-        }
+    .btn {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 16px 32px;
+    }
 
-        .light {
-            color: #222;
-            border: 3px solid #222;
-        }
+    .btn:hover {
+      cursor: pointer;
+    }
 
-        .pink-bg {
-            color: #fff;
-            background-color: #9E0059;
-        }
+    .btn.active {
+      background-color: #9E0059;
+    }
 
-        .pink-br {
-            border: 3px solid #9E0059;
-        }
+    .darkish {
+      background-color: #222;
+      color: #fff;
+    }
 
-        #postcode-search {
-            width: 100%;
-            height: 30px;
-            font-family: inherit;
-            font-size: 16px;
-            border: none;
-        }
+    .light {
+      color: #222;
+      border: 3px solid #222;
+    }
 
-        input:focus {
-            outline: none;
-        }
+    .pink-bg {
+      color: #fff;
+      background-color: #9E0059;
+    }
 
-        .location {
-            display: grid;
-            grid-gap: 10px;
-            padding: 10px;
-        }
+    .pink-br {
+      border: 3px solid #9E0059;
+    }
 
-        .location a {
-            color: #9E0059;
-        }
+    #postcode-search {
+      width: 100%;
+      height: 30px;
+      font-family: inherit;
+      font-size: 16px;
+      border: none;
+    }
 
-        .location .title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #9E0059;
-        }
+    input:focus {
+      outline: none;
+    }
 
-        .location .title-btn {
-            font-size: 30px;
-            color: #9E0059;
-            font-weight: bold;
-        }
+    .location {
+      display: grid;
+      grid-gap: 10px;
+      padding: 10px;
+    }
 
-        .location .title-btn:hover {
-            cursor: pointer;
-        }
+    .location a {
+      color: #9E0059;
+    }
 
-        .location .expander {
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 24px;
-            width: 24px;
-            background-image: url(https://geolytix.github.io/gla/icons/up.svg);
-        }
+    .location .title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #9E0059;
+    }
 
-        .collapsed ._grid {
-            display: none !important;
-        }
+    .location .title-btn {
+      font-size: 30px;
+      color: #9E0059;
+      font-weight: bold;
+    }
 
-        .collapsed .expander {
-            background-image: url(https://geolytix.github.io/gla/icons/down.svg);
-        }
+    .location .title-btn:hover {
+      cursor: pointer;
+    }
 
-        .location .exit {
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 24px;
-            width: 24px;
-            background-image: url(https://geolytix.github.io/gla/icons/exit.svg);
-        }
+    .location .expander {
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 24px;
+      width: 24px;
+      background-image: url(https://geolytix.github.io/gla/icons/up.svg);
+    }
 
-        .location_drop{
-            width:20px;
-            height:20px;
-        }
-        
-        .location_icon {
-            width: 15px;
-            height: 15px;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    .collapsed ._grid {
+      display: none !important;
+    }
 
-        .location .grid {
-            display: grid;
-            grid-gap: 5px;
-        }
+    .collapsed .expander {
+      background-image: url(https://geolytix.github.io/gla/icons/down.svg);
+    }
 
-        .align-flex {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
+    .location .exit {
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 24px;
+      width: 24px;
+      background-image: url(https://geolytix.github.io/gla/icons/exit.svg);
+    }
 
-        /* MAP */
-        #Map {
-            position: relative;
-            height: 400px;
-        }
+    .location_drop {
+      width: 20px;
+      height: 20px;
+    }
 
-        .ol-control button {
-          color: #9E0059
-        }
+    .location_icon {
+      width: 15px;
+      height: 15px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-        #Map>._attribution {
-            z-index: 999;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            text-align: left;
-            white-space: nowrap;
-            background-color: #fff;
-            opacity: 0.9;
-            padding: 5px;
-            font-size: 10px;
-            font-weight: bold;
-        }
+    .location .grid {
+      display: grid;
+      grid-gap: 5px;
+    }
 
-        ._attribution>a {
-            color: rgb(0, 120, 168);
-        }
+    .align-flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
 
-        .filter {
-            padding-top: 16px;
-            padding-bottom: 16px;
-            border-top: 1px solid #ddd;
-        }
+    /* MAP */
+    #Map {
+      position: relative;
+      height: 400px;
+    }
 
-        .filterHead {
-            position: relative;
-            color: #9E0059;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .ol-control button {
+      color: #9E0059
+    }
 
-        .filterHead:hover {
-            cursor: pointer;
-        }
+    #Map>._attribution {
+      z-index: 999;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-align: left;
+      white-space: nowrap;
+      background-color: #fff;
+      opacity: 0.9;
+      padding: 5px;
+      font-size: 10px;
+      font-weight: bold;
+    }
 
-        .filterHead>.expander {
-            position: absolute;
-            right: 0;
-            background-image: url(https://geolytix.github.io/gla/icons/down.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 24px;
-            width: 24px;
-            top: -5px;
-        }
+    ._attribution>a {
+      color: rgb(0, 120, 168);
+    }
 
-        .expanded .expander {
-            background-image: url(https://geolytix.github.io/gla/icons/up.svg);
-        }
+    .filter {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      border-top: 1px solid #ddd;
+    }
 
-        .expanded .filterList {
-            height: auto !important;
-            padding-top: 16px;
-        }
+    .filterHead {
+      position: relative;
+      color: #9E0059;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-        .filterList>div {
-            color: #333;
-            font-weight: 400;
-        }
+    .filterHead:hover {
+      cursor: pointer;
+    }
 
-        .filterList .input-checkbox {
-            margin: 7px 0;
-        }
+    .filterHead>.expander {
+      position: absolute;
+      right: 0;
+      background-image: url(https://geolytix.github.io/gla/icons/down.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 24px;
+      width: 24px;
+      top: -5px;
+    }
+
+    .expanded .expander {
+      background-image: url(https://geolytix.github.io/gla/icons/up.svg);
+    }
+
+    .expanded .filterList {
+      height: auto !important;
+      padding-top: 16px;
+    }
+
+    .filterList>div {
+      color: #333;
+      font-weight: 400;
+    }
+
+    .filterList .input-checkbox {
+      margin: 7px 0;
+    }
 
 
 
-        /* LIST */
-        .tabulator {
-            border: none;
-        }
+    /* LIST */
+    .tabulator {
+      border: none;
+    }
 
-        .tabulator-row.tabulator-group {
-            background: #fff;
-        }
+    .tabulator-row.tabulator-group {
+      background: #fff;
+    }
 
-        .tabulator .tabulator-header {
-            display: none;
-        }
+    .tabulator .tabulator-header {
+      display: none;
+    }
 
-        .tabulator .tabulator-tableHolder .tabulator-table {
-            width: 100%;
-            padding: 0 10px;
-        }
+    .tabulator .tabulator-tableHolder .tabulator-table {
+      width: 100%;
+      padding: 0 10px;
+    }
 
-        .tabulator-row {
-            min-height: 0px;
-            color: rgb(158, 0, 89);
-            font-size: 18px;
-        }
+    .tabulator-row {
+      min-height: 0px;
+      color: rgb(158, 0, 89);
+      font-size: 18px;
+    }
 
-        .tabulator-row.tabulator-selectable:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
+    .tabulator-row.tabulator-selectable:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
 
-        .tabulator-row .tabulator-responsive-collapse {
-            border: none;
-        }
+    .tabulator-row .tabulator-responsive-collapse {
+      border: none;
+    }
 
-        .tabulator-row .tabulator-cell {
-            border-left: none;
-        }
+    .tabulator-row .tabulator-cell {
+      border-left: none;
+    }
 
-        .tabulator-row .tabulator-cell div div {
-            display: block !important;
-        }
+    .tabulator-row .tabulator-cell div div {
+      display: block !important;
+    }
 
-        .tabulator-row.tabulator-group {
-            border-bottom: none;
-            border-left: none;
-            border-top: none;
-        }
-    </style>
+    .tabulator-row.tabulator-group {
+      border-bottom: none;
+      border-left: none;
+      border-top: none;
+    }
+  </style>
 
 </head>
 
 <body>
 
-    <div style="
+  <div style="
         min-width: 768px;
         color: #FFF;
         background-color: #353D42;
@@ -329,9 +329,9 @@
         white-space: nowrap;
         line-height: 3;
         text-align: center;">
-    </div>
+  </div>
 
-    <div style="
+  <div style="
         min-width: 768px;
         max-width: 1024px;
         margin: auto;
@@ -340,10 +340,10 @@
         font-size: 32px;
         font-weight: bold;
         background-color: #F5F5F5;">
-        Employment rights advice near you
-    </div>
+    Employment rights advice near you
+  </div>
 
-    <div style="
+  <div style="
         min-width: 768px;
         max-width: 1024px;
         margin: auto;
@@ -353,101 +353,101 @@
         grid-template-columns: 2fr 3fr;
         grid-gap: 10px;">
 
-        <div style="grid-column: 1;">
+    <div style="grid-column: 1;">
 
-            <div class="pink-box">
-                Find
-            </div>
+      <div class="pink-box">
+        Find
+      </div>
 
-            <div class="text-box">
-                Search for a location or click on a point on the map to see details of employment rights advice centres
-                near you.
-            </div>
+      <div class="text-box">
+        Search for a location or click on a point on the map to see details of employment rights advice centres
+        near you.
+      </div>
 
-            <div style="
+      <div style="
                 background-color: #fff;
                 padding: 10px;
                 display: grid;
                 grid-gap: 10px;">
 
-                <div style="
+        <div style="
                     border: 1px solid #222;
                     border-radius: 3px;
                     padding: 13px;
                     grid-row: 1;
                     grid-column: 1/3">
-                    <input id="postcode-search" placeholder="Enter your postcode or address" />
-                </div>
+          <input id="postcode-search" placeholder="Enter your postcode or address" />
+        </div>
 
-                <div id="btnLocate" class="btn darkish" style="grid-row: 2; grid-column: 1/2;">
-                    Current Location
-                </div>
+        <div id="btnLocate" class="btn darkish" style="grid-row: 2; grid-column: 1/2;">
+          Current Location
+        </div>
 
-                <div id="postcode-find" class="btn darkish" style="grid-row: 2; grid-column: 2/3">
-                    Find this Postcode
-                </div>
+        <div id="postcode-find" class="btn darkish" style="grid-row: 2; grid-column: 2/3">
+          Find this Postcode
+        </div>
 
-            </div>
+      </div>
 
-            <div class="pink-box">
-                Filter
-            </div>
+      <div class="pink-box">
+        Filter
+      </div>
 
-            <div style="
+      <div style="
             background-color: #fff;
             padding: 10px;">
 
-                <div class="filter">
-                    <div class="filterHead">Borough<div class="expander"></div>
-                    </div>
-                    <div class="filterList" id="filterBorough" style="height: 0; overflow: hidden;"></div>
-                </div>
-                <div class="filter" style="border-bottom: 1px solid #ddd;">
-                    <div class="filterHead">Service Offered <div class="expander"></div>
-                    </div>
-                    <div class="filterList" id="filterServices" style="height: 0; overflow: hidden;"></div>
-                </div>
-                <div id="resetFilter" class="btn" style="
+        <div class="filter">
+          <div class="filterHead">Borough<div class="expander"></div>
+          </div>
+          <div class="filterList" id="filterBorough" style="height: 0; overflow: hidden;"></div>
+        </div>
+        <div class="filter" style="border-bottom: 1px solid #ddd;">
+          <div class="filterHead">Service Offered <div class="expander"></div>
+          </div>
+          <div class="filterList" id="filterServices" style="height: 0; overflow: hidden;"></div>
+        </div>
+        <div id="resetFilter" class="btn" style="
             display: inline-block;
             background-color: #9E0059;
             color: #fff;
             margin-top: 10px;">
-                    Reset
-                </div>
-
-            </div>
-
-            <div id="locationView" style="background-color: #fff; padding: 10px;">
-            </div>
-
+          Reset
         </div>
 
-        <div style="grid-column: 2;">
+      </div>
 
-            <div id="Map">
-                <div class="_attribution">
-                    <a target="_blank" href="https://github.com/geolytix/xyz">GEOLYTIX XYZ</a> |
-                    <a target="_blank" href="https://openlayers.org">Openlayers</a> |
-                    <a target="_blank"
-                        href="https://www.ordnancesurvey.co.uk/business-government/products/open-zoomstack">Ordnance
-                        Survey Zoomstack</a>
-                </div>
-            </div>
-
-            <div class="pink-box">
-                Browse advice centres in London
-            </div>
-
-            <div class="text-box">
-                Click on an advice centre in the last below to see details like when it opens and how to get in touch
-                with them.
-            </div>
-
-            <div id="List" style="background-color: #fff; margin-top: 0;"></div>
-
-        </div>
+      <div id="locationView" style="background-color: #fff; padding: 10px;">
+      </div>
 
     </div>
+
+    <div style="grid-column: 2;">
+
+      <div id="Map">
+        <div class="_attribution">
+          <a target="_blank" href="https://github.com/geolytix/xyz">GEOLYTIX XYZ</a> |
+          <a target="_blank" href="https://openlayers.org">Openlayers</a> |
+          <a target="_blank"
+            href="https://www.ordnancesurvey.co.uk/business-government/products/open-zoomstack">Ordnance
+            Survey Zoomstack</a>
+        </div>
+      </div>
+
+      <div class="pink-box">
+        Browse advice centres in London
+      </div>
+
+      <div class="text-box">
+        Click on an advice centre in the last below to see details like when it opens and how to get in touch
+        with them.
+      </div>
+
+      <div id="List" style="background-color: #fff; margin-top: 0;"></div>
+
+    </div>
+
+  </div>
 
 </body>
 

@@ -71,7 +71,7 @@ window.onload = () => _xyz({
       });
 
       location.view = xyz.utils.html.node`<div class="location" style="${'font-size: 14px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
-  
+
       const header = xyz.utils.html.node`<div style="display: grid; grid-gap: 5px; grid-template-columns: auto 30px 30px;">`;
 
       location.view.appendChild(header);
@@ -169,7 +169,7 @@ window.onload = () => _xyz({
             background-repeat: no-repeat;">`);
 
         viewGrid.appendChild(xyz.utils.html.node`
-            <div style="grid-column: 2/5; grid-row: 5;">${fields.coverage}`);     
+            <div style="grid-column: 2/5; grid-row: 5;">${fields.coverage}`);
 
       }
 
@@ -292,31 +292,31 @@ window.onload = () => _xyz({
 
 
       viewGrid.appendChild(xyz.utils.html.node`
-      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_initial_advice ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://geolytix.github.io/gla/icons/' + (fields.service_initial_advice ? 'checked' : 'unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 2;">One-off initial advice.`);
 
       viewGrid.appendChild(xyz.utils.html.node`
-      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_written_advice ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://geolytix.github.io/gla/icons/' + (fields.service_written_advice ? 'checked' : 'unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 3;">Written advice.`);
 
       viewGrid.appendChild(xyz.utils.html.node`
-      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_form_filling ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://geolytix.github.io/gla/icons/' + (fields.service_form_filling ? 'checked' : 'unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 4;">Help with filling in forms.`);
 
       viewGrid.appendChild(xyz.utils.html.node`
-      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_case_work ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://geolytix.github.io/gla/icons/' + (fields.service_case_work ? 'checked' : 'unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 5;">Help with putting a case together for court.`);
 
       viewGrid.appendChild(xyz.utils.html.node`
-      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_representation ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://geolytix.github.io/gla/icons/' + (fields.service_representation ? 'checked' : 'unchecked') + '.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
       viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 6;">Representation at court.`);
@@ -333,7 +333,7 @@ window.onload = () => _xyz({
         viewGrid.appendChild(xyz.utils.html.node`
           <div style="grid-column: 2; grid-row: 1;">
             <div style="font-weight: bold">Access</div>
-            <div style="white-space: pre-wrap;">${fields.access}</div>`);            
+            <div style="white-space: pre-wrap;">${fields.access}</div>`);
       }
 
       if (fields.access) {
@@ -342,7 +342,7 @@ window.onload = () => _xyz({
         viewGrid.appendChild(xyz.utils.html.node`
           <div style="grid-column: 4; grid-row: 1;">
             <div style="font-weight: bold">Translation</div>
-            <div style="white-space: pre-wrap;">${fields.translation_notes}</div>`);          
+            <div style="white-space: pre-wrap;">${fields.translation_notes}</div>`);
       }
 
       location.view.appendChild(viewGrid);
@@ -554,7 +554,7 @@ window.onload = () => _xyz({
     });
 
     xyz.gazetteer.icon = {
-      url: "https://geolytix.github.io/gla/icon-pin_gazetteer.svg",
+      url: "https://geolytix.github.io/gla/icons/pin_gazetteer.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
@@ -569,63 +569,65 @@ window.onload = () => _xyz({
             if (json.length === 0) return alert('No results for this search.');
 
             // Zoom to extent of nearest 3 centre in callback.
-            xyz.gazetteer.select(Object.assign(json[0], {callback: res => {
+            xyz.gazetteer.select(Object.assign(json[0], {
+              callback: res => {
 
-              const xhr = new XMLHttpRequest();
+                const xhr = new XMLHttpRequest();
 
-              xhr.open('GET',
-                xyz.host + '/api/query?' +
-                xyz.utils.paramString({
-                  template: 'get_nnearest',
-                  locale: 'London',
-                  layer: 'Advice Center',
-                  table: 'gla.gla',
-                  n: 3,
-                  coords: res.coordinates,
-                  lng: res.coordinates[0],
-                  lat: res.coordinates[1],
-                  filter: JSON.stringify(layer.filter.current),
-                }));
-
-              xhr.setRequestHeader('Content-Type', 'application/json');
-              xhr.responseType = 'json';
-
-              xhr.onload = e => {
-
-                if (e.target.status !== 200) return;
-
-                const geoJSON = new ol.format.GeoJSON();
-
-                const features = [];
-
-                e.target.response.forEach(f => {
-
-                  features.push(geoJSON.readFeature({
-                    type: 'Feature',
-                    geometry: {
-                      type: 'Point',
-                      coordinates: f.coords
-                    }
-                  }, {
-                    dataProjection: 'EPSG:4326',
-                    featureProjection: 'EPSG:3857'
+                xhr.open('GET',
+                  xyz.host + '/api/query?' +
+                  xyz.utils.paramString({
+                    template: 'get_nnearest',
+                    locale: 'London',
+                    layer: 'Advice Center',
+                    table: 'gla.gla',
+                    n: 3,
+                    coords: res.coordinates,
+                    lng: res.coordinates[0],
+                    lat: res.coordinates[1],
+                    filter: JSON.stringify(layer.filter.current),
                   }));
 
-                });
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.responseType = 'json';
 
-                const gazSource = xyz.gazetteer.layer.getSource();
+                xhr.onload = e => {
 
-                gazSource.addFeatures(features);
+                  if (e.target.status !== 200) return;
 
-                xyz.mapview.flyToBounds(xyz.gazetteer.layer.getSource().getExtent());
+                  const geoJSON = new ol.format.GeoJSON();
 
-                features.forEach(f => gazSource.removeFeature(f));
+                  const features = [];
 
-              };
+                  e.target.response.forEach(f => {
 
-              xhr.send();
+                    features.push(geoJSON.readFeature({
+                      type: 'Feature',
+                      geometry: {
+                        type: 'Point',
+                        coordinates: f.coords
+                      }
+                    }, {
+                      dataProjection: 'EPSG:4326',
+                      featureProjection: 'EPSG:3857'
+                    }));
 
-            }}));
+                  });
+
+                  const gazSource = xyz.gazetteer.layer.getSource();
+
+                  gazSource.addFeatures(features);
+
+                  xyz.mapview.flyToBounds(xyz.gazetteer.layer.getSource().getExtent());
+
+                  features.forEach(f => gazSource.removeFeature(f));
+
+                };
+
+                xhr.send();
+
+              }
+            }));
 
           }
         }
