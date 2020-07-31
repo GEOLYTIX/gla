@@ -67,143 +67,143 @@ input[type=range]::-moz-range-thumb {
   -webkit-filter: invert(45%) sepia(55%) saturate(608%) hue-rotate(90deg) brightness(93%) contrast(90%); }
 
 .icon-layers {
-  background-image: url("../icons/icon-layers.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-layers.svg"); }
 
 .icon-filter-list {
-  background-image: url("../icons/icon-filter-list.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-filter-list.svg"); }
 
 .icon-location {
-  background-image: url("../icons/icon-room.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-room.svg"); }
 
 .icon-face {
-  background-image: url("../icons/icon-face.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-face.svg"); }
 
 .icon-search {
-  background-image: url("../icons/icon-search.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-search.svg"); }
 
 .icon-gps-not-fixed {
-  background-image: url("../icons/icon-gps_not_fixed.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-gps_not_fixed.svg"); }
 
 .icon-map {
-  background-image: url("../icons/icon-map.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-map.svg"); }
 
 .icon-add {
-  background-image: url("../icons/icon-add.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-add.svg"); }
 
 .icon-remove {
-  background-image: url("../icons/icon-remove.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-remove.svg"); }
 
 .icon-show-chart {
-  background-image: url("../icons/icon-show-chart.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-show-chart.svg"); }
 
 .icon-line {
-  background-image: url("../icons/icon-line.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-line.svg"); }
 
 .icon-school {
-  background-image: url("../icons/icon-school.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-school.svg"); }
 
 .icon-lock-open {
-  background-image: url("../icons/icon-lock-open.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-lock-open.svg"); }
 
 .icon-logout {
-  background-image: url("../icons/icon-logout.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-logout.svg"); }
 
 .icon-supervisor-account {
-  background-image: url("../icons/icon-supervisor-account.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-supervisor-account.svg"); }
 
 .icon-settings {
-  background-image: url("../icons/icon-settings.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-settings.svg"); }
 
 .icon-bug-report {
-  background-image: url("../icons/icon-bug-report.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-bug-report.svg"); }
 
 .icon-vertical-align-top {
-  background-image: url("../icons/icon-vertical-align-top.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-vertical-align-top.svg"); }
 
 .icon-vertical-align-bottom {
-  background-image: url("../icons/icon-vertical-align-bottom.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-vertical-align-bottom.svg"); }
 
 .icon-fullscreen {
-  background-image: url("../icons/icon-fullscreen.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-fullscreen.svg"); }
 
 .icon-close {
-  background-image: url("../icons/icon-close.svg");
+  background-image: url("https://geolytix.xyz/gla/icons/icon-close.svg");
   background-position: right; }
 
 .icon-backup {
-  background-image: url("../icons/icon-backup.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-backup.svg"); }
 
 .icon-description {
-  background-image: url("../icons/icon-description.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-description.svg"); }
 
 .icon-touch-app {
-  background-image: url("../icons/icon-touch-app.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-touch-app.svg"); }
 
 .icon-toggle {
-  background-image: url("../icons/icon-toggle-off.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-toggle-off.svg"); }
 
 .icon-toggle:not(.on) {
   filter: invert(52%) sepia(6%) saturate(10%) hue-rotate(323deg) brightness(88%) contrast(85%);
   -webkit-filter: invert(52%) sepia(6%) saturate(10%) hue-rotate(323deg) brightness(88%) contrast(85%); }
 
 .icon-toggle.on {
-  background-image: url("../icons/icon-toggle-on.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-toggle-on.svg"); }
 
 .icon-cloud-upload {
-  background-image: url("../icons/icon-cloud-upload.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-cloud-upload.svg"); }
 
 .icon-keyboard-arrow-up {
-  background-image: url("../icons/icon-keyboard-arrow-up.svg");
+  background-image: url("https://geolytix.xyz/gla/icons/icon-keyboard-arrow-up.svg");
   background-position: right; }
 
 .icon-keyboard-arrow-down {
-  background-image: url("../icons/icon-keyboard-arrow-down.svg");
+  background-image: url("https://geolytix.xyz/gla/icons/icon-keyboard-arrow-down.svg");
   background-position: right; }
 
 .icon-trash {
-  background-image: url("../icons/icon-trash.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-trash.svg"); }
 
 .icon-build {
-  background-image: url("../icons/icon-build.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-build.svg"); }
 
 .icon-add-document {
-  background-image: url("../icons/icon-add-document.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-add-document.svg"); }
 
 .icon-add-photo {
-  background-image: url("../icons/icon-add-photo.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-add-photo.svg"); }
 
 .icon-view-list {
-  background-image: url("../icons/icon-view-list.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-view-list.svg"); }
 
 .icon-bar-chart {
-  background-image: url("../icons/icon-bar-chart.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-bar-chart.svg"); }
 
 .icon-pie-chart {
-  background-image: url("../icons/icon-pie-chart.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-pie-chart.svg"); }
 
 .icon-donut-small {
-  background-image: url("../icons/icon-donut-small.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-donut-small.svg"); }
 
 .icon-notes {
-  background-image: url("../icons/icon-notes.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-notes.svg"); }
 
 .icon-event-note {
-  background-image: url("../icons/icon-event-note.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-event-note.svg"); }
 
 .icon-scatter-plot {
-  background-image: url("../icons/icon-scatter-plot.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-scatter-plot.svg"); }
 
 .icon-bubble-chart {
-  background-image: url("../icons/icon-bubble-chart.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-bubble-chart.svg"); }
 
 .icon-multiline-chart {
-  background-image: url("../icons/icon-multiline-chart.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-multiline-chart.svg"); }
 
 .icon-location-tick {
-  background-image: url("../icons/icon-location-tick.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-location-tick.svg"); }
 
 .icon-area {
-  background-image: url("../icons/icon-area.svg"); }
+  background-image: url("https://geolytix.xyz/gla/icons/icon-area.svg"); }
 
 .sample-poly {
   width: 30%;
@@ -355,9 +355,9 @@ input[type=number] {
     background-position: center;
     background-size: contain;
     -webkit-background-size: contain;
-    background-image: url("../icons/icon-checkbox-unchecked.svg"); }
+    background-image: url("https://geolytix.xyz/gla/icons/icon-checkbox-unchecked.svg"); }
   .input-checkbox input:checked + div {
-    background-image: url("../icons/icon-checkbox-checked.svg"); }
+    background-image: url("https://geolytix.xyz/gla/icons/icon-checkbox-checked.svg"); }
   .input-checkbox input:disabled + div {
     opacity: 0.5; }
 
@@ -443,7 +443,7 @@ button {
       margin-left: auto;
       height: 20px;
       width: 20px;
-      content: url("../icons/icon-drop-down.svg"); }
+      content: url("https://geolytix.xyz/gla/icons/icon-drop-down.svg"); }
   .btn-drop > ul {
     display: none;
     position: absolute;
@@ -477,7 +477,7 @@ button {
   .btn-drop.active > ul {
     display: block; }
   .btn-drop.active > .head > .icon {
-    content: url("../icons/icon-drop-up.svg"); }
+    content: url("https://geolytix.xyz/gla/icons/icon-drop-up.svg"); }
 
 .drawer {
   box-sizing: content-box; }
@@ -496,12 +496,12 @@ button {
     overflow: hidden;
     transition: max-height 0.3s ease-out; }
     .drawer.expandable > .header > .icon-expander {
-      background-image: url("../icons/icon-keyboard-arrow-down.svg"); }
+      background-image: url("https://geolytix.xyz/gla/icons/icon-keyboard-arrow-down.svg"); }
   .drawer.expanded {
     overflow: visible;
     max-height: none !important; }
     .drawer.expanded > .header > .icon-expander {
-      background-image: url("../icons/icon-keyboard-arrow-up.svg"); }
+      background-image: url("https://geolytix.xyz/gla/icons/icon-keyboard-arrow-up.svg"); }
   .drawer.disabled {
     opacity: 0.4;
     pointer-events: none; }
@@ -2191,7 +2191,7 @@ span.flatpickr-weekday {
         -webkit-background-size: contain; }
       .location-view .list > .item .loader {
         height: 40px;
-        background-image: url("../icons/icon-loading-bubbles.svg"); }
+        background-image: url("https://geolytix.xyz/gla/icons/icon-loading-bubbles.svg"); }
       .location-view .list > .item .link-remove {
         height: 25px;
         width: 25px;
