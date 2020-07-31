@@ -12,10 +12,14 @@
 
     <link rel="stylesheet" href="${dir}/css/openlayers.css" />
     <link rel="stylesheet" href="${dir}/css/control.css" />
+    
+    <script src="${dir}/js/tabulator.js" defer></script>
+    <script src="${dir}/js/Chart.min.js" defer></script>
+    <script src="${dir}/js/ol.js" defer></script>
 
     <script src="${dir}/js/xyz_openlayers.js" defer></script>
     
-    <script src="${dir}/api/provider/github?url=api.github.com/repos/GEOLYTIX/gla/contents/desktop.js" defer></script>
+    <script src="${dir}/views/gla_desktop.js" defer></script>
     
     <style>
         * {
@@ -138,7 +142,7 @@
             background-position: center;
             height: 24px;
             width: 24px;
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_up.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/up.svg);
         }
 
         .collapsed ._grid {
@@ -146,7 +150,7 @@
         }
 
         .collapsed .expander {
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_down.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/down.svg);
         }
 
         .location .exit {
@@ -154,7 +158,7 @@
             background-position: center;
             height: 24px;
             width: 24px;
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_exit.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/exit.svg);
         }
 
         .location_drop{
@@ -187,6 +191,10 @@
         #Map {
             position: relative;
             height: 400px;
+        }
+
+        .ol-control button {
+          color: #9E0059
         }
 
         #Map>._attribution {
@@ -229,7 +237,7 @@
         .filterHead>.expander {
             position: absolute;
             right: 0;
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_down.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/down.svg);
             background-repeat: no-repeat;
             background-position: center;
             height: 24px;
@@ -238,7 +246,7 @@
         }
 
         .expanded .expander {
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_up.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/up.svg);
         }
 
         .expanded .filterList {
@@ -312,7 +320,7 @@
         min-width: 768px;
         color: #FFF;
         background-color: #353D42;
-        background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/logo-mayoral.svg);
+        background-image: url(https://geolytix.github.io/gla/icons/logo-mayoral.svg);
         background-repeat: no-repeat;
         background-position: center;
         height: 65px;

@@ -1,26 +1,26 @@
 window.onload = () => _xyz({
-  host: document.head.dataset.dir,
+  host: '/gla',
   hooks: true,
   locale: 'London',
-  callback: _xyz => {
+  callback: xyz => {
 
-    _xyz.mapview.create({
+    xyz.mapview.create({
       target: document.getElementById('Map'),
       scrollWheelZoom: true,
       zoomControl: true,
     });
 
     document.getElementById('btnLocate').onclick = e => {
-      _xyz.mapview.locate.toggle();
+      xyz.mapview.locate.toggle();
       e.target.classList.toggle('active');
     };
 
-    _xyz.locations.list = [
+    xyz.locations.list = [
       {
         color: '#00AEEF',
         colorDark: '#007BBC',
         marker: {
-          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_blue.svg",
+          url: "https://geolytix.github.io/gla/icons/pin_blue.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -29,7 +29,7 @@ window.onload = () => _xyz({
         color: '#008D48',
         colorDark: '#005A15',
         marker: {
-          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_green.svg",
+          url: "https://geolytix.github.io/gla/icons/pin_green.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
@@ -38,27 +38,27 @@ window.onload = () => _xyz({
         color: '#E85713',
         colorDark: '#CF3E00',
         marker: {
-          url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_orange.svg",
+          url: "https://geolytix.github.io/gla/icons/pin_orange.svg",
           anchor: [0.5, 1],
           scale: 0.5
         },
       }
     ];
 
-    _xyz.locations.selectCallback = location => {
+    xyz.locations.selectCallback = location => {
 
       for (const filter of filters) {
         filter.classList.remove('expanded');
       }
 
       // Draw location marker.
-      location.Marker = _xyz.mapview.geoJSON({
+      location.Marker = xyz.mapview.geoJSON({
         geometry: {
           type: 'Point',
           coordinates: location.marker,
         },
-        style: new _xyz.mapview.lib.style.Style({
-          image: _xyz.mapview.icon(location.record.marker)
+        style: new ol.style.Style({
+          image: xyz.mapview.icon(location.record.marker)
         })
       });
 
@@ -70,19 +70,19 @@ window.onload = () => _xyz({
 
       });
 
-      location.view = _xyz.utils.wire()`<div class="location" style="${'font-size: 14px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
+      location.view = xyz.utils.html.node`<div class="location" style="${'font-size: 14px; margin-top: 10px; border: 3px solid ' + location.record.color}">`;
   
-      const header = _xyz.utils.wire()`<div style="display: grid; grid-gap: 5px; grid-template-columns: auto 30px 30px;">`;
+      const header = xyz.utils.html.node`<div style="display: grid; grid-gap: 5px; grid-template-columns: auto 30px 30px;">`;
 
       location.view.appendChild(header);
 
-      header.appendChild(_xyz.utils.wire()`<div style="grid-column: 1" class="title">${fields.organisation_short}`);
+      header.appendChild(xyz.utils.html.node`<div style="grid-column: 1" class="title">${fields.organisation_short}`);
 
-      const title_expand = _xyz.utils.wire()`<div style="grid-column: 2;" class="title-btn expander">`;
+      const title_expand = xyz.utils.html.node`<div style="grid-column: 2;" class="title-btn expander">`;
 
       header.appendChild(title_expand);
 
-      const title_close = _xyz.utils.wire()`<div style="grid-column: 3;" class="title-btn exit">`;
+      const title_close = xyz.utils.html.node`<div style="grid-column: 3;" class="title-btn exit">`;
 
       header.appendChild(title_close);
 
@@ -101,85 +101,85 @@ window.onload = () => _xyz({
 
 
 
-      var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 20px 1fr 20px 1fr;">`;
+      var viewGrid = xyz.utils.html.node`<div class="grid _grid" style="grid-template-columns: 20px 1fr 20px 1fr;">`;
 
       viewGrid.appendChild(
-        _xyz.utils.wire()`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_location.svg);" class="location_drop">`);
+        xyz.utils.html.node`<div style="grid-column: 1; grid-row: 1;"><div style="background-image: url(https://geolytix.github.io/gla/icons/location.svg);" class="location_drop">`);
 
-      var viewAddress = _xyz.utils.wire()`<div style="grid-column: 2; grid-row: 1/4;">`;
+      var viewAddress = xyz.utils.html.node`<div style="grid-column: 2; grid-row: 1/4;">`;
 
       if (fields.address1) viewAddress.appendChild(
-        _xyz.utils.wire()`<div>${fields.address1}`
+        xyz.utils.html.node`<div>${fields.address1}`
       );
 
       if (fields.address2) viewAddress.appendChild(
-        _xyz.utils.wire()`<div>${fields.address2}`
+        xyz.utils.html.node`<div>${fields.address2}`
       );
 
       if (fields.address3) viewAddress.appendChild(
-        _xyz.utils.wire()`<div>${fields.address3}`
+        xyz.utils.html.node`<div>${fields.address3}`
       );
 
       if (fields.address4) viewAddress.appendChild(
-        _xyz.utils.wire()`<div>${fields.address4}`
+        xyz.utils.html.node`<div>${fields.address4}`
       );
 
       if (fields.postcode) viewAddress.appendChild(
-        _xyz.utils.wire()`<div>${fields.postcode}`
+        xyz.utils.html.node`<div>${fields.postcode}`
       );
 
       viewGrid.appendChild(viewAddress);
 
       if (fields.website) {
         viewGrid.appendChild(
-          _xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_link.svg);" class="location_icon">`);
+          xyz.utils.html.node`
+          <div style="grid-column: 3; grid-row: 1; background-image: url(https://geolytix.github.io/gla/icons/link.svg);" class="location_icon">`);
 
         viewGrid.appendChild(
-          _xyz.utils.wire()`
+          xyz.utils.html.node`
             <a style="grid-column: 4; grid-row: 1;" href="${fields.website}">Website</a>`);
       }
 
       if (fields.phone) {
         viewGrid.appendChild(
-          _xyz.utils.wire()`
-            <div style="grid-column: 3; grid-row: 2; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_phone.svg);" class="location_icon">`);
+          xyz.utils.html.node`
+            <div style="grid-column: 3; grid-row: 2; background-image: url(https://geolytix.github.io/gla/icons/phone.svg);" class="location_icon">`);
         viewGrid.appendChild(
-          _xyz.utils.wire()`
+          xyz.utils.html.node`
             <div style="grid-column: 4; grid-row: 2;">${fields.phone}`);
       }
 
       if (fields.email) {
         viewGrid.appendChild(
-          _xyz.utils.wire()`
-            <div style="grid-column: 3; grid-row: 3; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon_email.svg);" class="location_icon">`);
+          xyz.utils.html.node`
+            <div style="grid-column: 3; grid-row: 3; background-image: url(https://geolytix.github.io/gla/icons/email.svg);" class="location_icon">`);
         viewGrid.appendChild(
-          _xyz.utils.wire()`
+          xyz.utils.html.node`
             <a style="grid-column: 4; grid-row: 3;" href="${'mailto:' + fields.email}">Email</a>`);
       }
       if (fields.coverage) {
 
-        viewGrid.appendChild(_xyz.utils.wire()`
+        viewGrid.appendChild(xyz.utils.html.node`
             <div style="
             grid-column: 1;
             grid-row: 5;
-            background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-catchment.svg);
+            background-image: url(https://geolytix.github.io/gla/icons/catchment.svg);
             height: 30px;
             background-size: contain;
             background-repeat: no-repeat;">`);
 
-        viewGrid.appendChild(_xyz.utils.wire()`
+        viewGrid.appendChild(xyz.utils.html.node`
             <div style="grid-column: 2/5; grid-row: 5;">${fields.coverage}`);     
 
       }
 
       location.view.appendChild(viewGrid);
 
-      var viewGrid = _xyz.utils.wire()`<div style="display: grid; grid-gap:0px; grid-template-columns: 50px;">`;
+      var viewGrid = xyz.utils.html.node`<div style="display: grid; grid-gap:0px; grid-template-columns: 50px;">`;
 
       var gridRow = 1;
 
-      var el = _xyz.utils.wire()`
+      var el = xyz.utils.html.node`
           <div style="grid-column: 1/4; font-weight: bold; line-height: 2; font-size: 14px;">Opening Hours:`;
       el.style.gridRow = gridRow;
       viewGrid.appendChild(el);
@@ -195,7 +195,7 @@ window.onload = () => _xyz({
         fields.phone_friday ||
         fields.phone_saturday) {
 
-        var el = _xyz.utils.wire()`
+        var el = xyz.utils.html.node`
           <div style="grid-column: 2; font-weight: bold;">Telephone`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
@@ -213,7 +213,7 @@ window.onload = () => _xyz({
         fields.hours_friday ||
         fields.hours_saturday) {
 
-        var el = _xyz.utils.wire()`
+        var el = xyz.utils.html.node`
           <div style="grid-column: 3; font-weight: bold;">Face-to-face`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
@@ -238,20 +238,20 @@ window.onload = () => _xyz({
 
       function hours(gridRow, day, hours, phone) {
         if (hours || phone) {
-          var el = _xyz.utils.wire()`
+          var el = xyz.utils.html.node`
               <div style="grid-column: 1; font-weight: bold;">${day}`;
           el.style.gridRow = gridRow;
           viewGrid.appendChild(el);
 
           if (hours) {
-            var el = _xyz.utils.wire()`
+            var el = xyz.utils.html.node`
                 <div style="grid-column: 3;">${hours}`;
             el.style.gridRow = gridRow;
             viewGrid.appendChild(el);
           }
 
           if (phone) {
-            var el = _xyz.utils.wire()`
+            var el = xyz.utils.html.node`
                 <div style="grid-column: 2;">${phone}`;
             el.style.gridRow = gridRow;
             viewGrid.appendChild(el);
@@ -267,7 +267,7 @@ window.onload = () => _xyz({
 
 
       if (fields.phone_notes) {
-        var el = _xyz.utils.wire()`
+        var el = xyz.utils.html.node`
             <div style="grid-column: 1/4; white-space: pre-wrap;">${fields.phone_notes}`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
@@ -275,7 +275,7 @@ window.onload = () => _xyz({
       }
 
       if (fields.hours_notes) {
-        var el = _xyz.utils.wire()`
+        var el = xyz.utils.html.node`
             <div style="grid-column: 1/4; white-space: pre-wrap;">${fields.hours_notes}`;
         el.style.gridRow = gridRow;
         viewGrid.appendChild(el);
@@ -286,60 +286,60 @@ window.onload = () => _xyz({
 
 
 
-      var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 20px">`;
+      var viewGrid = xyz.utils.html.node`<div class="grid _grid" style="grid-template-columns: 20px">`;
 
-      viewGrid.appendChild(_xyz.utils.wire()`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 14px;">Services offered:`)
+      viewGrid.appendChild(xyz.utils.html.node`<div style="grid-column: 1/5; grid-row: 1; font-weight: bold; line-height: 2; font-size: 14px;">Services offered:`)
 
 
-      viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_initial_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      viewGrid.appendChild(xyz.utils.html.node`
+      <div style="${'grid-column: 1; grid-row: 2; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_initial_advice ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
+      viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 2;">One-off initial advice.`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_written_advice ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      viewGrid.appendChild(xyz.utils.html.node`
+      <div style="${'grid-column: 1; grid-row: 3; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_written_advice ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
+      viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 3;">Written advice.`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_form_filling ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      viewGrid.appendChild(xyz.utils.html.node`
+      <div style="${'grid-column: 1; grid-row: 4; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_form_filling ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
+      viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 4;">Help with filling in forms.`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_case_work ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      viewGrid.appendChild(xyz.utils.html.node`
+      <div style="${'grid-column: 1; grid-row: 5; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_case_work ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
+      viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 5;">Help with putting a case together for court.`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
-      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/'+ (fields.service_representation ? 'icon_checked' : 'icon_unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
+      viewGrid.appendChild(xyz.utils.html.node`
+      <div style="${'grid-column: 1; grid-row: 6; background-image: url(https://geolytix.github.io/gla/icons/'+ (fields.service_representation ? 'checked' : 'unchecked') +'.svg); height: 12px; background-size: contain; background-repeat: no-repeat;'}">`);
 
-      viewGrid.appendChild(_xyz.utils.wire()`
+      viewGrid.appendChild(xyz.utils.html.node`
       <div style="grid-column: 2; grid-row: 6;">Representation at court.`);
 
       location.view.appendChild(viewGrid);
 
 
-      var viewGrid = _xyz.utils.wire()`<div class="grid _grid" style="grid-template-columns: 30px 1fr 30px 1fr;">`;
+      var viewGrid = xyz.utils.html.node`<div class="grid _grid" style="grid-template-columns: 30px 1fr 30px 1fr;">`;
 
 
       if (fields.translation_notes) {
-        viewGrid.appendChild(_xyz.utils.wire()`
-          <div style="grid-column: 1; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
-        viewGrid.appendChild(_xyz.utils.wire()`
+        viewGrid.appendChild(xyz.utils.html.node`
+          <div style="grid-column: 1; grid-row: 1; background-image: url(https://geolytix.github.io/gla/icons/access.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+        viewGrid.appendChild(xyz.utils.html.node`
           <div style="grid-column: 2; grid-row: 1;">
             <div style="font-weight: bold">Access</div>
             <div style="white-space: pre-wrap;">${fields.access}</div>`);            
       }
 
       if (fields.access) {
-        viewGrid.appendChild(_xyz.utils.wire()`
-          <div style="grid-column: 3; grid-row: 1; background-image: url(https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
-        viewGrid.appendChild(_xyz.utils.wire()`
+        viewGrid.appendChild(xyz.utils.html.node`
+          <div style="grid-column: 3; grid-row: 1; background-image: url(https://geolytix.github.io/gla/icons/translate.svg); height: 25px; background-size: contain; background-repeat: no-repeat;"></div>`);
+        viewGrid.appendChild(xyz.utils.html.node`
           <div style="grid-column: 4; grid-row: 1;">
             <div style="font-weight: bold">Translation</div>
             <div style="white-space: pre-wrap;">${fields.translation_notes}</div>`);          
@@ -351,24 +351,25 @@ window.onload = () => _xyz({
 
     };
 
-    _xyz.hooks.current.locations.forEach(_hook => {
+    xyz.hooks.current.locations.forEach(_hook => {
 
       let hook = _hook.split('!');
 
-      _xyz.locations.select({
-        locale: _xyz.workspace.locale.key,
-        layer: _xyz.layers.list[decodeURIComponent(hook[0])],
+      xyz.locations.select({
+        locale: xyz.workspace.locale.key,
+        layer: xyz.layers.list[decodeURIComponent(hook[0])],
         table: hook[1],
         id: hook[2]
       });
     });
 
-    const layer = _xyz.layers.list['Advice Center'];
+    const layer = xyz.layers.list['Advice Center'];
 
-    const table = _xyz.dataviews.create({
+    const table = xyz.dataviews.create({
       target: document.getElementById('List'),
       query: 'gla_organisation',
       layer: layer,
+      table: 'gla.gla',
       viewport: true,
       active: true,
       selectable: true,
@@ -425,7 +426,7 @@ window.onload = () => _xyz({
 
       boroughs.forEach(borough => {
 
-        document.getElementById('filterBorough').appendChild(_xyz.utils.wire()`
+        document.getElementById('filterBorough').appendChild(xyz.utils.html.node`
         <label class="input-checkbox">
         <input type="checkbox" onchange=${e => {
             e.stopPropagation();
@@ -469,7 +470,7 @@ window.onload = () => _xyz({
 
       services.forEach(service => {
 
-        document.getElementById('filterServices').appendChild(_xyz.utils.wire()`
+        document.getElementById('filterServices').appendChild(xyz.utils.html.node`
         <label class="input-checkbox">
         <input type="checkbox" onchange=${e => {
             e.stopPropagation();
@@ -528,8 +529,8 @@ window.onload = () => _xyz({
 
 
     // Locator
-    _xyz.mapview.locate.icon = {
-      url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_locate.svg",
+    xyz.mapview.locate.icon = {
+      url: "https://geolytix.github.io/gla/icons/pin_locate.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
@@ -552,15 +553,15 @@ window.onload = () => _xyz({
       e.target.parentNode.classList.remove('pink-br');
     });
 
-    _xyz.gazetteer.icon = {
-      url: "https://raw.githubusercontent.com/GEOLYTIX/gla/master/icon-pin_gazetteer.svg",
+    xyz.gazetteer.icon = {
+      url: "https://geolytix.github.io/gla/icon-pin_gazetteer.svg",
       anchor: [0.5, 1],
       scale: 0.5
     }
 
     find.addEventListener('click', () => {
 
-      _xyz.gazetteer.search(input.value,
+      xyz.gazetteer.search(input.value,
         {
           source: 'GOOGLE',
           callback: json => {
@@ -568,15 +569,15 @@ window.onload = () => _xyz({
             if (json.length === 0) return alert('No results for this search.');
 
             // Zoom to extent of nearest 3 centre in callback.
-            _xyz.gazetteer.select(Object.assign(json[0], {callback: res => {
+            xyz.gazetteer.select(Object.assign(json[0], {callback: res => {
 
               const xhr = new XMLHttpRequest();
 
               xhr.open('GET',
-                _xyz.host + '/api/query?' +
-                _xyz.utils.paramString({
+                xyz.host + '/api/query?' +
+                xyz.utils.paramString({
                   template: 'get_nnearest',
-                  locale: _xyz.workspace.locale.key,
+                  locale: 'London',
                   layer: 'Advice Center',
                   table: 'gla.gla',
                   n: 3,
@@ -593,7 +594,7 @@ window.onload = () => _xyz({
 
                 if (e.target.status !== 200) return;
 
-                const geoJSON = new _xyz.mapview.lib.format.GeoJSON();
+                const geoJSON = new ol.format.GeoJSON();
 
                 const features = [];
 
@@ -612,11 +613,11 @@ window.onload = () => _xyz({
 
                 });
 
-                const gazSource = _xyz.gazetteer.layer.getSource();
+                const gazSource = xyz.gazetteer.layer.getSource();
 
                 gazSource.addFeatures(features);
 
-                _xyz.mapview.flyToBounds(_xyz.gazetteer.layer.getSource().getExtent());
+                xyz.mapview.flyToBounds(xyz.gazetteer.layer.getSource().getExtent());
 
                 features.forEach(f => gazSource.removeFeature(f));
 
