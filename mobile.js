@@ -27,7 +27,7 @@ window.onload = () => {
 
 
   _xyz({
-    host: 'https://geolytix.xyz/gla',
+    host: '/gla',
     locale: 'London',
     hooks: true,
     callback: init,
