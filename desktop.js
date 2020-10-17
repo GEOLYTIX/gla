@@ -1,5 +1,5 @@
 window.onload = () => _xyz({
-  host: 'https://geolytix.xyz/gla',
+  host: '/gla',
   hooks: true,
   locale: 'London',
   callback: xyz => {
